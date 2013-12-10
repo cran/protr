@@ -1,33 +1,45 @@
 Package: protr
-Version: 0.1-0
-Date: 2012-11-18
-Title: Protein Sequence Feature Extraction with R
-Description: The protr package aims for protein sequence feature
-        extraction, which could be easily applied in Bioinformatics and
-        Chemogenomics research.  The descriptors listed in this package
-        include Amino Acid Composition (Amino Acid
-        Composition/Dipeptide Composition/Tripeptide Composition),
-        Autocorrelation (Normalized Moreau-Broto Autocorrelation/Moran
-        Autocorrelation/Geary Autocorrelation), CTD
-        (Composition/Transition/Distribution), Conjoint Traid,
-        Quasi-sequence Order (Sequence Order Coupling
-        Number/Quasi-sequence Order Descriptors), and Pseudo Amino Acid
-        Composition (Pseudo Amino Acid Composition/Amphiphilic Pseudo
-        Amino Acid Composition). The package is developed by
-        Computational Biology and Drug Design Group, Central South
-        University.
-Author: Xiao Nan <road2stat@gmail.com>, Dongsheng Cao
-        <oriental-cds@163.com>, Qingsong Xu <dasongxu@gmail.com>,
-        Yizeng Liang <yizeng_liang@263.net>
-Maintainer: Xiao Nan <road2stat@gmail.com>
-License: BSD
+Version: 0.2-0
+Date: 2013-12-10
+Title: Protein Sequence Descriptor Calculation and Similarity
+        Computation with R
+Description: The protr package focus on offering a unique and comprehensive
+    toolkit for protein sequence descriptor calculation and similarity
+    computation. The descriptors included in the protr package are extensively
+    utilized in Bioinformatics and Chemogenomics research. The qualitative
+    descriptors listed in protr include Amino Acid Composition (Amino Acid
+    Composition/Dipeptide Composition/Tripeptide Composition) descriptor,
+    Autocorrelation (Normalized Moreau-Broto Autocorrelation/Moran
+    Autocorrelation/Geary Autocorrelation) descriptor, CTD
+    (Composition/Transition/Distribution) descriptor, Conjoint Traid
+    descriptor, Quasi-sequence Order (Sequence Order Coupling
+    Number/Quasi-sequence Order Descriptors) descriptor and Pseudo Amino Acid
+    Composition (Pseudo Amino Acid Composition/Amphiphilic Pseudo Amino Acid
+    Composition) descriptor. The quantitative descriptors, for
+    Proteochemometric (PCM) Modeling, includes the Generalized Scales-Based
+    Descriptors derived by Principal Components Analysis, Generalized
+    Scales-Based Descriptors derived by AA-Properties (AAindex), Generalized
+    Scales-Based Descriptors derived by 20+ classes of 2D and 3D Molecular
+    Descriptors (Topological, WHIM, VHSE, etc.), Generalized Scales-Based
+    Descriptors derived by Factor Analysis, Generalized Scales-Based
+    Descriptors derived by Multidimensional Scaling, and Generalized BLOSUM/PAM
+    Matrix-Derived Descriptors. The protr package also integrates the
+    functionality of parallellized similarity computation derived by protein
+    sequence alignment and Gene Ontology (GO) semantic similarity measures
+    between a list of protein sequences / GO terms / Entrez Gene IDs. ProtrWeb,
+    the web service built on protr, is located at:
+    http://cbdd.csu.edu.cn:8080/protrweb/ . The protr package is developed by
+    Computational Biology and Drug Design (CBDD) Group, Central South
+    University.
+Author: Nan Xiao <road2stat@gmail.com>, Qingsong Xu <dasongxu@gmail.com>,
+    Dongsheng Cao <oriental-cds@163.com>
+Maintainer: Nan Xiao <road2stat@gmail.com>
+License: BSD 3-clause License
 URL: https://github.com/road2stat/protr/
 BugReports: https://github.com/road2stat/protr/issues
-Collate: 'protr-package.R' 'readFASTA.R' 'getUniProt.R' 'protseg.R'
-        'protcheck.R' 'desc01AAC.R' 'desc02DC.R' 'desc03TC.R'
-        'desc04MoreauBroto.R' 'desc05Moran.R' 'desc06Geary.R'
-        'desc07CTDC.R' 'desc08CTDT.R' 'desc09CTDD.R' 'desc10CTriad.R'
-        'desc11SOCN.R' 'desc12QSO.R' 'desc13PAAC.R' 'desc14APAAC.R'
-Packaged: 2012-11-18 17:19:57 UTC; jimmy
+LazyData: yes
+Suggests: Biostrings, GOSemSim, foreach, doParallel, doMC
+Packaged: 2013-12-19 06:58:46 UTC; jimmy
+NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2012-11-18 21:03:51
+Date/Publication: 2013-12-19 09:31:24
