@@ -1,6 +1,7 @@
-0436f73bfdc4ba6ab10a163258a55649 *DESCRIPTION
+6b2970dfd354c7f096a518ad831c1f63 *DESCRIPTION
+3a925589a8f6807c545af095ca1a7086 *LICENSE
 18499a625551cb4b767cf4cbd5839fdf *NAMESPACE
-1c6a757ea58b06c4efe4b841231c3979 *NEWS
+9d178b4a1f932c6441ae16dcc5a19792 *NEWS
 0fd168513e49299ae10881997339f5ad *R/desc01AAC.R
 05509721fc3522c0d5ceaf619f7c8768 *R/desc02DC.R
 efc3b5f1af0dba09c0763400266bfa09 *R/desc03TC.R
@@ -71,7 +72,7 @@ fe761e0c115a58ab00a61ad6c4f8801e *data/AAindex.rda
 e4998dccf0d7c7d9cf8c29ef0cc064bc *inst/CITATION
 906f315cb62339726ec7f114ac07f72d *inst/doc/protr.R
 01ea8261f4c60bdcae46dd38c3cc674f *inst/doc/protr.Rnw
-e5c6137376251d5959bdc261e4006984 *inst/doc/protr.pdf
+6355e6bdb9817ee4906277e26f9b232e *inst/doc/protr.pdf
 ca35c56c0c379f292f8fab68b3a19f61 *inst/examples/protr-package-ex.R
 e9a8c531da4011cd6c79e837c7ca9775 *inst/protseq/4HHB.pdb
 4a16b7ca86e201cec2c42382c4445180 *inst/protseq/P00750.fasta
@@ -155,7 +156,6 @@ a8b92f7ece00a96c4b1c3ed99997a6b7 *vignettes/fig/AAindex.pdf
 24117eed39299675686d5533b15e4cf6 *vignettes/fig/CTD.pdf
 eacbe38823569968d7e4413412fc9cab *vignettes/fig/PAAC.png
 1aa13d2372e2581dbd9164c13e5898f2 *vignettes/fig/QSO.png
-0f32ff21cd8b59302ae4701f8dcc7ea3 *vignettes/fig/Thumbs.db
 87067dceab1764429e1f5ca7f83fb6f2 *vignettes/fig/ctriad.pdf
 14158a55a4db7fd5b77e51b8b6440bc9 *vignettes/fig/protrweb.png
 01ea8261f4c60bdcae46dd38c3cc674f *vignettes/protr.Rnw
