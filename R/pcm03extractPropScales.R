@@ -29,7 +29,7 @@
 #'
 #' @aliases extractPropScales
 #' 
-#' @author Nan Xiao <\url{http://www.road2stat.com}>
+#' @author Nan Xiao <\url{http://r2s.name}>
 #' 
 #' @seealso See \code{\link{extractScales}} for generalized scales-based descriptors.
 #' 
@@ -41,6 +41,8 @@
 #' 
 
 extractPropScales = function (x, index = NULL, pc, lag, scale = TRUE, silent = TRUE) {
+  
+  AAindex = get('AAindex')
   
   if (!is.null(index)) propmat = t(na.omit(as.matrix(AAindex[index, 7:26])))
   
