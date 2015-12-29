@@ -24,7 +24,7 @@ similarity measures.
 }
 \details{
 \tabular{ll}{ Package: \tab protr\cr Type: \tab Package\cr
-Version: \tab 1.0-1\cr License: \tab BSD 3-clause License\cr }
+Version: \tab 1.1-0\cr License: \tab BSD 3-clause License\cr }
 }
 \note{
 The user guide can be opened with \code{vignette('protr')},
@@ -32,7 +32,7 @@ which explains every descriptor included in this package and
 their corresponding usage.
 
 The web server for this package, \code{ProtrWeb} is located at:
-\url{http://protrweb.scbdd.com}.
+\url{http://protr.org}.
 
 Bug reports and feature requests should be sent to
 \url{https://github.com/road2stat/protr/issues}.

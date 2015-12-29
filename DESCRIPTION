@@ -1,6 +1,6 @@
 Package: protr
-Version: 1.0-1
-Date: 2015-11-26
+Version: 1.1-1
+Date: 2015-12-29
 Title: Generating Various Numerical Representation Schemes of Protein
         Sequence
 Description: Comprehensive toolkit for generating various numerical
@@ -21,6 +21,6 @@ LazyData: yes
 Suggests: Biostrings, GOSemSim, foreach, doParallel, org.Hs.eg.db
 RoxygenNote: 5.0.1
 NeedsCompilation: no
-Packaged: 2015-11-27 08:28:22 UTC; jimmy
+Packaged: 2015-12-29 18:34:31 UTC; jimmy
 Repository: CRAN
-Date/Publication: 2015-11-27 11:41:14
+Date/Publication: 2015-12-29 21:34:04

@@ -17,7 +17,7 @@
 #' similarity measures.
 #'
 #' \tabular{ll}{ Package: \tab protr\cr Type: \tab Package\cr
-#' Version: \tab 1.0-1\cr License: \tab BSD 3-clause License\cr }
+#' Version: \tab 1.1-0\cr License: \tab BSD 3-clause License\cr }
 #'
 #' @name protr-package
 #' @aliases protr
@@ -32,7 +32,7 @@
 #' their corresponding usage.
 #'
 #' The web server for this package, \code{ProtrWeb} is located at:
-#' \url{http://protrweb.scbdd.com}.
+#' \url{http://protr.org}.
 #'
 #' Bug reports and feature requests should be sent to
 #' \url{https://github.com/road2stat/protr/issues}.
