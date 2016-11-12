@@ -3,7 +3,7 @@
 ###################################################
 ### code chunk number 1: prelim
 ###################################################
-protr.version = '1.1-0'
+protr.version = '1.2-0'
 now.date = strftime(Sys.Date(), "%Y-%m-%d")
 
 
