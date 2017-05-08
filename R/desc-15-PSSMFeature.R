@@ -1,17 +1,17 @@
 #' Profile-based protein representation derived by PSSM
 #' (Position-Specific Scoring Matrix)
 #'
-#' Profile-based protein representation derived by PSSM
-#' (Position-Specific Scoring Matrix)
-#'
 #' This function calculates the profile-based protein representation
 #' derived by PSSM. The feature vector is based on the PSSM computed by
-#' \code{\link{extractPSSM}}. For a given sequence,
-#' The PSSM feature represents the log-likelihood of the substitution of the
-#' 20 types of amino acids at that position in the sequence.
-#' Each PSSM feature value in the vector represents the degree of conservation
-#' of a given amino acid type. The value is normalized to
-#' interval (0, 1) by the transformation 1/(1+e^(-x)).
+#' \code{\link{extractPSSM}}.
+#'
+#' For a given sequence, the PSSM feature represents the log-likelihood
+#' of the substitution of the 20 types of amino acids at that position
+#' in the sequence.
+#'
+#' Each PSSM feature value in the vector represents the degree of
+#' conservation of a given amino acid type. The value is normalized
+#' to interval (0, 1) by the transformation 1/(1+e^(-x)).
 #'
 #' @param pssmmat The PSSM computed by \code{\link{extractPSSM}}.
 #'
@@ -24,7 +24,7 @@
 #'
 #' @aliases extractPSSMFeature
 #'
-#' @author Nan Xiao <\url{http://nanx.me}>
+#' @author Nan Xiao <\url{https://nanx.me}>
 #'
 #' @export extractPSSMFeature
 #'
@@ -38,28 +38,35 @@
 #' \emph{Bioinformatics} 21.23 (2005): 4239--4247.
 #'
 #' @examples
-#' if (Sys.which('makeblastdb') == '' | Sys.which('psiblast') == '') {
-#'   cat('Could not find makeblastdb or psiblast. Please install NCBI Blast+ first.')
+#' if (Sys.which("makeblastdb") == "" | Sys.which("psiblast") == "") {
+#'
+#'   cat("Cannot find makeblastdb or psiblast. Please install NCBI Blast+")
+#'
 #' } else {
-#'   x = readFASTA(system.file('protseq/P00750.fasta', package = 'protr'))[[1]]
-#'   dbpath = tempfile('tempdb', fileext = '.fasta')
-#'   invisible(file.copy(from = system.file('protseq/Plasminogen.fasta',
-#'                                          package = 'protr'), to = dbpath))
+#'
+#'   x = readFASTA(system.file(
+#'     "protseq/P00750.fasta", package = "protr"))[[1]]
+#'   dbpath = tempfile("tempdb", fileext = ".fasta")
+#'   invisible(file.copy(from = system.file(
+#'     "protseq/Plasminogen.fasta", package = "protr"), to = dbpath))
+#'
 #'   pssmmat = extractPSSM(seq = x, database.path = dbpath)
 #'   pssmfeature = extractPSSMFeature(pssmmat)
 #'   head(pssmfeature)
+#'
 #' }
 
 extractPSSMFeature = function(pssmmat) {
 
   # Normalize PSSM scores to (0, 1)
-  result = as.vector(1/(1 + exp(pssmmat)))
+  res = as.vector(1/(1 + exp(pssmmat)))
 
-  AADict = c('A', 'R', 'N', 'D', 'C', 'Q', 'E', 'G', 'H', 'I',
-             'L', 'K', 'M', 'F', 'P', 'S', 'T', 'W', 'Y', 'V')
-  names(result) = paste0('PSSM_', paste0(rep(1L:ncol(pssmmat), each = 20L),
-                                         '_', AADict))
+  AADict = c(
+    'A', 'R', 'N', 'D', 'C', 'Q', 'E', 'G', 'H', 'I',
+    'L', 'K', 'M', 'F', 'P', 'S', 'T', 'W', 'Y', 'V')
+  names(res) = paste0(
+    'PSSM_', paste0(rep(1L:ncol(pssmmat), each = 20L), '_', AADict))
 
-  return(result)
+  res
 
 }

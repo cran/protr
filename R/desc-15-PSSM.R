@@ -1,9 +1,8 @@
 #' Compute PSSM (Position-Specific Scoring Matrix) for given protein sequence
 #'
-#' Compute PSSM (Position-Specific Scoring Matrix) for given protein sequence
-#'
 #' This function calculates the PSSM (Position-Specific Scoring Matrix) derived
 #' by PSI-Blast for given protein sequence or peptides.
+#'
 #' For given protein sequences or peptides, PSSM represents the
 #' log-likelihood of the substitution of the 20 types of amino acids at that
 #' position in the sequence. Note that the output value is not normalized.
@@ -36,11 +35,12 @@
 #' @param gapopen Integer. Cost to open a gap.
 #' @param gapextend Integer. Cost to extend a gap.
 #' @param matrix Character string. The scoring matrix name
-#' (default is \code{'BLOSUM62'}).
+#' (default is \code{"BLOSUM62"}).
 #' @param threshold Minimum word score such that the word is added to
 #' the BLAST lookup table. A real value >= 0.
-#' @param seg Character string. Filter query sequence with SEG (\code{'yes'},
-#' \code{'window locut hicut'}, or \code{'no'} to disable) Default is \code{'no'}.
+#' @param seg Character string. Filter query sequence with SEG (\code{"yes"},
+#' \code{"window locut hicut"}, or \code{"no"} to disable).
+#' Default is \code{"no"}.
 #' @param soft.masking Logical. Apply filtering locations as soft masks?
 #' Default is \code{FALSE}.
 #' @param culling.limit An integer >= 0. If the query range of a hit is
@@ -75,12 +75,9 @@
 #' their paths provided.
 #'
 #' The two command-line programs are included in the NCBI-BLAST+
-#' software package. To install NCBI Blast+, just open the NCBI FTP site
-#' using web browser or FTP software:
-#' \url{ftp://anonymous@@ftp.ncbi.nlm.nih.gov:21/blast/executables/blast+/LATEST/}
-#' then download the executable version of BLAST+ according to your
-#' operation system, and compile or install the downloaded
-#' source code or executable program.
+#' software package. To install NCBI Blast+ for your operating system, see
+#' \url{https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&amp;DOC_TYPE=Download}
+#' for detailed instructions.
 #'
 #' Ubuntu/Debian users can directly use the command
 #' \code{sudo apt-get install ncbi-blast+} to install NCBI Blast+.
@@ -93,7 +90,7 @@
 #'
 #' @aliases extractPSSM
 #'
-#' @author Nan Xiao <\url{http://nanx.me}>
+#' @author Nan Xiao <\url{https://nanx.me}>
 #'
 #' @export extractPSSM
 #'
@@ -111,40 +108,50 @@
 #' \emph{Bioinformatics} 21.23 (2005): 4239--4247.
 #'
 #' @examples
-#' if (Sys.which('makeblastdb') == '' | Sys.which('psiblast') == '') {
-#'   cat('Could not find makeblastdb or psiblast. Please install NCBI Blast+ first.')
+#' if (Sys.which("makeblastdb") == "" | Sys.which("psiblast") == "") {
+#'
+#'   cat("Cannot find makeblastdb or psiblast. Please install NCBI Blast+ first")
+#'
 #' } else {
-#'   x = readFASTA(system.file('protseq/P00750.fasta', package = 'protr'))[[1]]
-#'   dbpath = tempfile('tempdb', fileext = '.fasta')
-#'   invisible(file.copy(from = system.file('protseq/Plasminogen.fasta',
-#'                                          package = 'protr'), to = dbpath))
+#'
+#'   x = readFASTA(system.file(
+#'     "protseq/P00750.fasta", package = "protr"))[[1]]
+#'   dbpath = tempfile("tempdb", fileext = ".fasta")
+#'   invisible(file.copy(from = system.file(
+#'     "protseq/Plasminogen.fasta", package = "protr"), to = dbpath))
+#'
 #'   pssmmat = extractPSSM(seq = x, database.path = dbpath)
+#'
 #'   dim(pssmmat)  # 20 x 562 (P00750: length 562, 20 Amino Acids)
+#'
 #' }
 
-extractPSSM = function(seq, start.pos = 1L, end.pos = nchar(seq),
-                       psiblast.path = NULL, makeblastdb.path = NULL,
-                       database.path = NULL, iter = 5, silent = TRUE,
-                       evalue = 10L, word.size = NULL,
-                       gapopen = NULL, gapextend = NULL,
-                       matrix = 'BLOSUM62', threshold = NULL,
-                       seg = 'no', soft.masking = FALSE,
-                       culling.limit = NULL, best.hit.overhang = NULL,
-                       best.hit.score.edge = NULL,
-                       xdrop.ungap = NULL, xdrop.gap = NULL,
-                       xdrop.gap.final = NULL,
-                       window.size = NULL, gap.trigger = 22L,
-                       num.threads = 1L, pseudocount = 0L,
-                       inclusion.ethresh = 0.002) {
+extractPSSM = function(
+  seq, start.pos = 1L, end.pos = nchar(seq),
+  psiblast.path = NULL, makeblastdb.path = NULL,
+  database.path = NULL, iter = 5, silent = TRUE,
+  evalue = 10L, word.size = NULL,
+  gapopen = NULL, gapextend = NULL,
+  matrix = 'BLOSUM62', threshold = NULL,
+  seg = 'no', soft.masking = FALSE,
+  culling.limit = NULL, best.hit.overhang = NULL,
+  best.hit.score.edge = NULL,
+  xdrop.ungap = NULL, xdrop.gap = NULL,
+  xdrop.gap.final = NULL,
+  window.size = NULL, gap.trigger = 22L,
+  num.threads = 1L, pseudocount = 0L,
+  inclusion.ethresh = 0.002) {
 
   if (Sys.which('makeblastdb') == '' & is.null(makeblastdb.path))
-    stop('Please install makeblastdb (included in the NCBI BLAST+) or specify makeblastdb.path.')
+    stop('Please install makeblastdb (included in NCBI BLAST+) or specify makeblastdb.path')
 
   if (Sys.which('psiblast') == '' & is.null(psiblast.path))
-    stop('Please install psiblast (included in the NCBI BLAST+) or specify psiblast.path.')
+    stop('Please install psiblast (included in NCBI BLAST+) or specify psiblast.path')
 
-  makeblastdb.path = if (!is.null(makeblastdb.path)) makeblastdb.path else Sys.which('makeblastdb')
-  psiblast.path = if (!is.null(psiblast.path)) psiblast.path else Sys.which('psiblast')
+  makeblastdb.path = if (!is.null(makeblastdb.path))
+    makeblastdb.path else Sys.which('makeblastdb')
+  psiblast.path = if (!is.null(psiblast.path))
+    psiblast.path else Sys.which('psiblast')
 
   if (is.null(database.path)) stop('Must specify the database (a FASTA file) path')
 
@@ -154,8 +161,9 @@ extractPSSM = function(seq, start.pos = 1L, end.pos = nchar(seq),
 
   tmpdb = tempfile('protrPSIBlastDB')
 
-  cmddb = paste0(shQuote(makeblastdb.path), ' -dbtype prot -in ',
-                 shQuote(database.path), ' -out ', shQuote(tmpdb))
+  cmddb = paste0(
+    shQuote(makeblastdb.path), ' -dbtype prot -in ',
+    shQuote(database.path), ' -out ', shQuote(tmpdb))
 
   if (silent == TRUE) system(cmddb, ignore.stdout = TRUE) else system(cmddb)
 
@@ -254,15 +262,16 @@ extractPSSM = function(seq, start.pos = 1L, end.pos = nchar(seq),
 
   PSSMClean = function(x) {
     y = unlist(strsplit(PSSMraw[x + 3], split = '\\s+'))
-    return(-as.numeric(y[4L:23L]))
+    -as.numeric(y[4L:23L])
   }
 
   PSSMmat = sapply(start.pos:end.pos, PSSMClean)
 
-  AADict = c('A', 'R', 'N', 'D', 'C', 'Q', 'E', 'G', 'H', 'I',
-             'L', 'K', 'M', 'F', 'P', 'S', 'T', 'W', 'Y', 'V')
+  AADict = c(
+    'A', 'R', 'N', 'D', 'C', 'Q', 'E', 'G', 'H', 'I',
+    'L', 'K', 'M', 'F', 'P', 'S', 'T', 'W', 'Y', 'V')
   rownames(PSSMmat) = AADict
 
-  return(PSSMmat)
+  PSSMmat
 
 }

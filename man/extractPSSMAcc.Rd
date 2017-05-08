@@ -19,28 +19,30 @@ the element names are derived by the amino acid name abbreviation
 (crossed amino acid name abbreviation) and lag index.
 }
 \description{
-Profile-based protein representation derived by PSSM
-(Position-Specific Scoring Matrix) and auto cross covariance
-}
-\details{
 This function calculates the feature vector based on the PSSM
 by running PSI-Blast and auto cross covariance tranformation.
 }
 \examples{
-if (Sys.which('makeblastdb') == '' | Sys.which('psiblast') == '') {
-  cat('Could not find makeblastdb or psiblast. Please install NCBI Blast+ first.')
+if (Sys.which("makeblastdb") == "" | Sys.which("psiblast") == "") {
+
+  cat("Cannot find makeblastdb or psiblast. Please install NCBI Blast+")
+
 } else {
-  x = readFASTA(system.file('protseq/P00750.fasta', package = 'protr'))[[1]]
-  dbpath = tempfile('tempdb', fileext = '.fasta')
-  invisible(file.copy(from = system.file('protseq/Plasminogen.fasta',
-                                         package = 'protr'), to = dbpath))
+
+  x = readFASTA(system.file(
+    "protseq/P00750.fasta", package = "protr"))[[1]]
+  dbpath = tempfile("tempdb", fileext = ".fasta")
+  invisible(file.copy(from = system.file(
+    "protseq/Plasminogen.fasta", package = "protr"), to = dbpath))
+
   pssmmat = extractPSSM(seq = x, database.path = dbpath)
   pssmacc = extractPSSMAcc(pssmmat, lag = 3)
   tail(pssmacc)
+
 }
 }
 \author{
-Nan Xiao <\url{http://nanx.me}>
+Nan Xiao <\url{https://nanx.me}>
 }
 \references{
 Wold, S., Jonsson, J., Sj\"{o}rstr\"{o}m, M., Sandberg,

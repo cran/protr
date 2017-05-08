@@ -54,13 +54,14 @@ Default is \code{10}.}
 \item{gapextend}{Integer. Cost to extend a gap.}
 
 \item{matrix}{Character string. The scoring matrix name
-(default is \code{'BLOSUM62'}).}
+(default is \code{"BLOSUM62"}).}
 
 \item{threshold}{Minimum word score such that the word is added to
 the BLAST lookup table. A real value >= 0.}
 
-\item{seg}{Character string. Filter query sequence with SEG (\code{'yes'},
-\code{'window locut hicut'}, or \code{'no'} to disable) Default is \code{'no'}.}
+\item{seg}{Character string. Filter query sequence with SEG (\code{"yes"},
+\code{"window locut hicut"}, or \code{"no"} to disable).
+Default is \code{"no"}.}
 
 \item{soft.masking}{Logical. Apply filtering locations as soft masks?
 Default is \code{FALSE}.}
@@ -103,11 +104,10 @@ The original PSSM, a numeric matrix which has
 \code{end.pos - start.pos + 1} columns and \code{20} named rows.
 }
 \description{
-Compute PSSM (Position-Specific Scoring Matrix) for given protein sequence
-}
-\details{
 This function calculates the PSSM (Position-Specific Scoring Matrix) derived
 by PSI-Blast for given protein sequence or peptides.
+}
+\details{
 For given protein sequences or peptides, PSSM represents the
 log-likelihood of the substitution of the 20 types of amino acids at that
 position in the sequence. Note that the output value is not normalized.
@@ -118,12 +118,9 @@ to be properly installed in the operation system or
 their paths provided.
 
 The two command-line programs are included in the NCBI-BLAST+
-software package. To install NCBI Blast+, just open the NCBI FTP site
-using web browser or FTP software:
-\url{ftp://anonymous@ftp.ncbi.nlm.nih.gov:21/blast/executables/blast+/LATEST/}
-then download the executable version of BLAST+ according to your
-operation system, and compile or install the downloaded
-source code or executable program.
+software package. To install NCBI Blast+ for your operating system, see
+\url{https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&amp;DOC_TYPE=Download}
+for detailed instructions.
 
 Ubuntu/Debian users can directly use the command
 \code{sudo apt-get install ncbi-blast+} to install NCBI Blast+.
@@ -131,19 +128,26 @@ For OS X users, download \code{ncbi-blast- ... .dmg} then install.
 For Windows users, download \code{ncbi-blast- ... .exe} then install.
 }
 \examples{
-if (Sys.which('makeblastdb') == '' | Sys.which('psiblast') == '') {
-  cat('Could not find makeblastdb or psiblast. Please install NCBI Blast+ first.')
+if (Sys.which("makeblastdb") == "" | Sys.which("psiblast") == "") {
+
+  cat("Cannot find makeblastdb or psiblast. Please install NCBI Blast+ first")
+
 } else {
-  x = readFASTA(system.file('protseq/P00750.fasta', package = 'protr'))[[1]]
-  dbpath = tempfile('tempdb', fileext = '.fasta')
-  invisible(file.copy(from = system.file('protseq/Plasminogen.fasta',
-                                         package = 'protr'), to = dbpath))
+
+  x = readFASTA(system.file(
+    "protseq/P00750.fasta", package = "protr"))[[1]]
+  dbpath = tempfile("tempdb", fileext = ".fasta")
+  invisible(file.copy(from = system.file(
+    "protseq/Plasminogen.fasta", package = "protr"), to = dbpath))
+
   pssmmat = extractPSSM(seq = x, database.path = dbpath)
+
   dim(pssmmat)  # 20 x 562 (P00750: length 562, 20 Amino Acids)
+
 }
 }
 \author{
-Nan Xiao <\url{http://nanx.me}>
+Nan Xiao <\url{https://nanx.me}>
 }
 \references{
 Altschul, Stephen F., et al.

@@ -13,11 +13,8 @@ extractCTDD(x)
 A length 105 named vector
 }
 \description{
-CTD Descriptors - Distribution
-}
-\details{
 This function calculates the Distribution descriptor of the
-CTD descriptors (Dim: 105).
+CTD descriptors (dim: 105).
 }
 \note{
 For this descriptor type, users need to intelligently evaluate
@@ -27,11 +24,11 @@ negative and positive control comparisons where relevant to help guide
 interpretation of the results.
 }
 \examples{
-x = readFASTA(system.file('protseq/P00750.fasta', package = 'protr'))[[1]]
+x = readFASTA(system.file("protseq/P00750.fasta", package = "protr"))[[1]]
 extractCTDD(x)
 }
 \author{
-Nan Xiao <\url{http://nanx.me}>
+Nan Xiao <\url{https://nanx.me}>
 }
 \references{
 Inna Dubchak, Ilya Muchink, Stephen R. Holbrook and Sung-Hou Kim.
@@ -45,7 +42,7 @@ Recognition of a Protein Fold in the Context of the SCOP classification.
 }
 \seealso{
 See \code{\link{extractCTDC}} and \code{\link{extractCTDT}}
-         for Composition and Transition of the CTD descriptors.
+for Composition and Transition of the CTD descriptors.
 }
 \keyword{CTD}
 \keyword{Composition}

@@ -1,11 +1,11 @@
-# protr  <a href="http://nanx.me/protr/"><img src="http://nanx.me/images/project-protr.png" align="right" alt="logo" height="180" width="180" /></a>
+# protr  <a href="https://nanx.me/protr/"><img src="https://nanx.me/images/project-protr.png" align="right" alt="logo" height="180" width="180" /></a>
 
 [![Build Status](https://travis-ci.org/road2stat/protr.svg?branch=master)](https://travis-ci.org/road2stat/protr)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/road2stat/protr?branch=master&svg=true)](https://ci.appveyor.com/project/road2stat/protr)
-[![CRAN Version](http://www.r-pkg.org/badges/version/protr)](https://cran.r-project.org/package=protr)
-[![Downloads from the RStudio CRAN mirror](http://cranlogs.r-pkg.org/badges/protr)](http://cranlogs.r-pkg.org/badges/protr)
+[![CRAN Version](https://www.r-pkg.org/badges/version/protr)](https://cran.r-project.org/package=protr)
+[![Downloads from the RStudio CRAN mirror](https://cranlogs.r-pkg.org/badges/protr)](https://cranlogs.r-pkg.org/badges/protr)
 
-Comprehensive toolkit for generating various numerical features of protein sequences described in Xiao et al. (2015) <[DOI:10.1093/bioinformatics/btv042](https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btv042)> ([PDF](https://drive.google.com/file/d/0B1YdO4YnMkAxRWJXQkhjeG1rQlE/view)).
+Comprehensive toolkit for generating various numerical features of protein sequences described in Xiao et al. (2015) <[DOI:10.1093/bioinformatics/btv042](https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btv042)> ([PDF](https://nanx.me/papers/protr.pdf)).
 
 ## Paper Citation
 
@@ -29,6 +29,27 @@ issn = {1367-4803},
 url = {http://bioinformatics.oxfordjournals.org/content/31/11/1857}
 }
 ```
+
+## Installation
+
+To install `protr` from CRAN:
+
+```r
+install.packages("protr")
+```
+
+Or try the latest version on GitHub:
+
+```r
+# install.packages("devtools")
+devtools::install_github("road2stat/protr")
+```
+
+## Shiny Web Application
+
+ProtrWeb, the Shiny web application built on protr, can be accessed from [http://protr.org](http://protr.org).
+
+ProtrWeb is a user-friendly web application for computing the protein sequence descriptors (features) presented in the protr package.
 
 ## Descriptors List
 
@@ -95,14 +116,8 @@ GO semantic similarity measures:
   * BLOSUM and PAM matrices for the 20 amino acids
   * Meta information of the 20 amino acids
 
-## Shiny Web Application
-
-ProtrWeb, the Shiny web application built on protr, can be accessed from [http://protr.org](http://protr.org).
-
-ProtrWeb does not require any knowledge of R programming for the users, it is a user-friendly and one-click-to-go online platform for computing the descriptors presented in the protr package.
-
 ## Links
 
-  * Website: http://nanx.me/protr/
+  * Website: https://nanx.me/protr/
   * CRAN: https://cran.r-project.org/package=protr
   * GitHub: https://github.com/road2stat/protr

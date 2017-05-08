@@ -1,9 +1,7 @@
 #' Sequence-Order-Coupling Numbers
 #'
-#' Sequence-Order-Coupling Numbers
-#'
 #' This function calculates the Sequence-Order-Coupling Numbers
-#' (Dim: \code{nlag * 2}, default is 60).
+#' (dim: \code{nlag * 2}, default is 60).
 #'
 #' @param x A character vector, as the input protein sequence.
 #'
@@ -15,7 +13,7 @@
 #'
 #' @aliases extractSOCN
 #'
-#' @author Nan Xiao <\url{http://nanx.me}>
+#' @author Nan Xiao <\url{https://nanx.me}>
 #'
 #' @seealso See \code{\link{extractQSO}} for quasi-sequence-order descriptors.
 #'
@@ -38,18 +36,23 @@
 #' \emph{Biophys Journal}, 1994, 66, 335-344.
 #'
 #' @examples
-#' x = readFASTA(system.file('protseq/P00750.fasta', package = 'protr'))[[1]]
+#' x = readFASTA(system.file("protseq/P00750.fasta", package = "protr"))[[1]]
 #' extractSOCN(x)
 
-extractSOCN = function (x, nlag = 30) {
+extractSOCN = function(x, nlag = 30) {
 
-  if (protcheck(x) == FALSE) stop('x has unrecognized amino acid type')
+  if (protcheck(x) == FALSE)
+    stop('x has unrecognized amino acid type')
 
   N = nchar(x)
-  if (N <= nlag) stop('Length of the protein sequence must be greater than "nlag"')
 
-  DistMat1 = read.csv(system.file('sysdata/Schneider-Wrede.csv', package = 'protr'), header = TRUE)
-  DistMat2 = read.csv(system.file('sysdata/Grantham.csv', package = 'protr'), header = TRUE)
+  if (N <= nlag)
+    stop('Length of the protein sequence must be greater than "nlag"')
+
+  DistMat1 = read.csv(system.file(
+    'sysdata/Schneider-Wrede.csv', package = 'protr'), header = TRUE)
+  DistMat2 = read.csv(system.file(
+    'sysdata/Grantham.csv', package = 'protr'), header = TRUE)
   row.names(DistMat1) = as.character(DistMat1[, 1])
   DistMat1 = DistMat1[, -1]
   row.names(DistMat2) = as.character(DistMat2[, 1])
@@ -87,6 +90,6 @@ extractSOCN = function (x, nlag = 30) {
 
   tau = c(tau1, tau2)
 
-  return(tau)
+  tau
 
 }

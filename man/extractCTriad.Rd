@@ -13,10 +13,7 @@ extractCTriad(x)
 A length 343 named vector
 }
 \description{
-Conjoint Triad Descriptor
-}
-\details{
-This function calculates the Conjoint Triad descriptor (Dim: 343).
+This function calculates the Conjoint Triad descriptor (dim: 343).
 }
 \note{
 For this descriptor type, users need to intelligently evaluate
@@ -26,11 +23,11 @@ negative and positive control comparisons where relevant to help guide
 interpretation of the results.
 }
 \examples{
-x = readFASTA(system.file('protseq/P00750.fasta', package = 'protr'))[[1]]
+x = readFASTA(system.file("protseq/P00750.fasta", package = "protr"))[[1]]
 extractCTriad(x)
 }
 \author{
-Nan Xiao <\url{http://nanx.me}>
+Nan Xiao <\url{https://nanx.me}>
 }
 \references{
 J.W. Shen, J. Zhang, X.M. Luo, W.L. Zhu,
