@@ -1,45 +1,119 @@
-### R code from vignette source 'protr.Rnw'
-
-###################################################
-### code chunk number 1: prelim
-###################################################
-protr.version = "1.3-0"
-now.date = strftime(Sys.Date(), "%Y-%m-%d")
-
-
-###################################################
-### code chunk number 2: extractAAC
-###################################################
+## ------------------------------------------------------------------------
 library("protr")
+
+# load FASTA files
+extracell = readFASTA(system.file(
+  "protseq/extracell.fasta", package = "protr"))
+mitonchon = readFASTA(system.file(
+  "protseq/mitochondrion.fasta", package = "protr"))
+
+## ---- eval = FALSE-------------------------------------------------------
+#  length(extracell)
+
+## ---- eval = FALSE-------------------------------------------------------
+#  ## [1] 325
+
+## ---- eval = FALSE-------------------------------------------------------
+#  length(mitonchon)
+
+## ---- eval = FALSE-------------------------------------------------------
+#  ## [1] 306
+
+## ---- eval = FALSE-------------------------------------------------------
+#  extracell = extracell[(sapply(extracell, protcheck))]
+#  mitonchon = mitonchon[(sapply(mitonchon, protcheck))]
+
+## ---- eval = FALSE-------------------------------------------------------
+#  length(extracell)
+
+## ---- eval = FALSE-------------------------------------------------------
+#  ## [1] 323
+
+## ---- eval = FALSE-------------------------------------------------------
+#  length(mitonchon)
+
+## ---- eval = FALSE-------------------------------------------------------
+#  ## [1] 304
+
+## ---- eval = FALSE-------------------------------------------------------
+#  # calculate APAAC descriptors
+#  x1 = t(sapply(extracell, extractAPAAC))
+#  x2 = t(sapply(mitonchon, extractAPAAC))
+#  x  = rbind(x1, x2)
+#  
+#  # make class labels
+#  labels = as.factor(c(rep(0, length(extracell)), rep(1, length(mitonchon))))
+
+## ---- eval = FALSE-------------------------------------------------------
+#  set.seed(1001)
+#  
+#  # split training and test set
+#  tr.idx = c(
+#    sample(1:nrow(x1), round(nrow(x1) * 0.75)),
+#    sample(nrow(x1) + 1:nrow(x2), round(nrow(x2) * 0.75))
+#  )
+#  te.idx = setdiff(1:nrow(x), tr.idx)
+#  
+#  x.tr = x[tr.idx, ]
+#  x.te = x[te.idx, ]
+#  y.tr = labels[tr.idx]
+#  y.te = labels[te.idx]
+
+## ---- eval = FALSE-------------------------------------------------------
+#  library("randomForest")
+#  rf.fit = randomForest(x.tr, y.tr, cv.fold = 5)
+#  print(rf.fit)
+
+## ---- eval = FALSE-------------------------------------------------------
+#  ## Call:
+#  ##  randomForest(x = x.tr, y = y.tr, cv.fold = 5)
+#  ##                Type of random forest: classification
+#  ##                      Number of trees: 500
+#  ## No. of variables tried at each split: 8
+#  ##
+#  ##         OOB estimate of  error rate: 25.11%
+#  ## Confusion matrix:
+#  ##     0   1 class.error
+#  ## 0 196  46   0.1900826
+#  ## 1  72 156   0.3157895
+
+## ---- eval = FALSE-------------------------------------------------------
+#  # predict on test set
+#  rf.pred = predict(rf.fit, newdata = x.te, type = "prob")[, 1]
+#  
+#  # plot ROC curve
+#  library("pROC")
+#  plot.roc(y.te, rf.pred, grid = TRUE, print.auc = TRUE)
+
+## ---- eval = FALSE-------------------------------------------------------
+#  ## Call:
+#  ## plot.roc.default(x = y.te, predictor = rf.pred, col = "#0080ff",
+#  ##                  grid = TRUE, print.auc = TRUE)
+#  ##
+#  ## Data: rf.pred in 81 controls (y.te 0) > 76 cases (y.te 1).
+#  ## Area under the curve: 0.8697
+
+## ---- extractAAC---------------------------------------------------------
+library("protr")
+
 x = readFASTA(system.file(
   "protseq/P00750.fasta", package = "protr"))[[1]]
+
 extractAAC(x)
 
-
-###################################################
-### code chunk number 3: extractDC
-###################################################
+## ---- extractDC----------------------------------------------------------
 dc = extractDC(x)
 head(dc, n = 30L)
 
-
-###################################################
-### code chunk number 4: extractTC
-###################################################
+## ---- extractTC----------------------------------------------------------
 tc = extractTC(x)
 head(tc, n = 36L)
 
-
-###################################################
-### code chunk number 5: extractMoreau1
-###################################################
+## ---- extractMoreau1-----------------------------------------------------
 moreau = extractMoreauBroto(x)
 head(moreau, n = 36L)
 
-
-###################################################
-### code chunk number 6: extractMoreau2
-###################################################
+## ---- extractMoreau2-----------------------------------------------------
 # Define 3 custom properties
 myprops = data.frame(
   AccNo = c("MyProp1", "MyProp2", "MyProp3"),
@@ -65,10 +139,7 @@ moreau2 = extractMoreauBroto(
 
 head(moreau2, n = 36L)
 
-
-###################################################
-### code chunk number 7: extractMoran
-###################################################
+## ---- extractMoran-------------------------------------------------------
 # Use the 3 custom properties defined before
 # and 4 properties in the AAindex database
 moran = extractMoran(
@@ -80,10 +151,7 @@ moran = extractMoran(
 
 head(moran, n = 36L)
 
-
-###################################################
-### code chunk number 8: extractGeary
-###################################################
+## ---- extractGeary-------------------------------------------------------
 # Use the 3 custom properties defined before
 # and 4 properties in the AAindex database
 geary = extractGeary(
@@ -95,59 +163,32 @@ geary = extractGeary(
 
 head(geary, n = 36L)
 
-
-###################################################
-### code chunk number 9: extractCTDC
-###################################################
+## ---- extractCTDC--------------------------------------------------------
 extractCTDC(x)
 
-
-###################################################
-### code chunk number 10: extractCTDT
-###################################################
+## ---- extractCTDT--------------------------------------------------------
 extractCTDT(x)
 
-
-###################################################
-### code chunk number 11: extractCTDD
-###################################################
+## ---- extractCTDD--------------------------------------------------------
 extractCTDD(x)
 
-
-###################################################
-### code chunk number 12: extractCTriad
-###################################################
+## ---- extractCTriad------------------------------------------------------
 ctriad = extractCTriad(x)
 head(ctriad, n = 65L)
 
-
-###################################################
-### code chunk number 13: extractSOCN
-###################################################
+## ---- extractSOCN--------------------------------------------------------
 extractSOCN(x)
 
-
-###################################################
-### code chunk number 14: extractQSO
-###################################################
+## ---- extractQSO---------------------------------------------------------
 extractQSO(x)
 
-
-###################################################
-### code chunk number 15: extractPAAC
-###################################################
+## ---- extractPAAC--------------------------------------------------------
 extractPAAC(x)
 
-
-###################################################
-### code chunk number 16: extractAPAAC
-###################################################
+## ---- extractAPAAC-------------------------------------------------------
 extractAPAAC(x)
 
-
-###################################################
-### code chunk number 17: extractDescScales
-###################################################
+## ---- extractDescScales--------------------------------------------------
 x = readFASTA(system.file(
   "protseq/P00750.fasta", package = "protr"))[[1]]
 
@@ -156,17 +197,11 @@ descscales = extractDescScales(
   index = c(37:41, 43:47),
   pc = 5, lag = 7, silent = FALSE)
 
-
-###################################################
-### code chunk number 18: extractDescScales2
-###################################################
+## ---- extractDescScales2-------------------------------------------------
 length(descscales)
 head(descscales, 15)
 
-
-###################################################
-### code chunk number 19: extractBLOSUM
-###################################################
+## ---- extractBLOSUM------------------------------------------------------
 x = readFASTA(system.file(
   "protseq/P00750.fasta", package = "protr"))[[1]]
 
@@ -174,27 +209,102 @@ blosum = extractBLOSUM(
   x, submat = "AABLOSUM62",
   k = 5, lag = 7, scale = TRUE, silent = FALSE)
 
-
-###################################################
-### code chunk number 20: extractBLOSUM2
-###################################################
+## ---- extractBLOSUM2-----------------------------------------------------
 length(blosum)
 head(blosum, 15)
 
+## ---- eval = FALSE-------------------------------------------------------
+#  s1 = readFASTA(system.file("protseq/P00750.fasta", package = "protr"))[[1]]
+#  s2 = readFASTA(system.file("protseq/P08218.fasta", package = "protr"))[[1]]
+#  s3 = readFASTA(system.file("protseq/P10323.fasta", package = "protr"))[[1]]
+#  s4 = readFASTA(system.file("protseq/P20160.fasta", package = "protr"))[[1]]
+#  s5 = readFASTA(system.file("protseq/Q9NZP8.fasta", package = "protr"))[[1]]
+#  plist = list(s1, s2, s3, s4, s5)
+#  psimmat = parSeqSim(plist, cores = 4, type = "local", submat = "BLOSUM62")
+#  print(psimmat)
 
-###################################################
-### code chunk number 21: protcheck
-###################################################
+## ---- eval = FALSE-------------------------------------------------------
+#  ##            [,1]       [,2]       [,3]       [,4]       [,5]
+#  ## [1,] 1.00000000 0.11825938 0.10236985 0.04921696 0.03943488
+#  ## [2,] 0.11825938 1.00000000 0.18858241 0.12124217 0.06391103
+#  ## [3,] 0.10236985 0.18858241 1.00000000 0.05819984 0.06175942
+#  ## [4,] 0.04921696 0.12124217 0.05819984 1.00000000 0.05714638
+#  ## [5,] 0.03943488 0.06391103 0.06175942 0.05714638 1.00000000
+
+## ---- eval = FALSE-------------------------------------------------------
+#  # by GO Terms
+#  go1 = c("GO:0005215", "GO:0005488", "GO:0005515",
+#          "GO:0005625", "GO:0005802", "GO:0005905")  # AP4B1
+#  go2 = c("GO:0005515", "GO:0005634", "GO:0005681",
+#          "GO:0008380", "GO:0031202")                # BCAS2
+#  go3 = c("GO:0003735", "GO:0005622", "GO:0005840",
+#          "GO:0006412")                              # PDE4DIP
+#  glist = list(go1, go2, go3)
+#  gsimmat1 = parGOSim(glist, type = "go", ont = "CC")
+#  print(gsimmat1)
+
+## ---- eval = FALSE-------------------------------------------------------
+#  ##       [,1]  [,2]  [,3]
+#  ## [1,] 1.000 0.077 0.055
+#  ## [2,] 0.077 1.000 0.220
+#  ## [3,] 0.055 0.220 1.000
+
+## ---- eval = FALSE-------------------------------------------------------
+#  # by Entrez gene id
+#  genelist = list(c("150", "151", "152", "1814", "1815", "1816"))
+#  gsimmat2 = parGOSim(genelist, type = "gene")
+#  print(gsimmat2)
+
+## ---- eval = FALSE-------------------------------------------------------
+#  ##        150   151   152  1814  1815  1816
+#  ## 150  0.689 0.335 0.487 0.133 0.169 0.160
+#  ## 151  0.335 0.605 0.441 0.171 0.198 0.274
+#  ## 152  0.487 0.441 0.591 0.151 0.178 0.198
+#  ## 1814 0.133 0.171 0.151 0.512 0.401 0.411
+#  ## 1815 0.169 0.198 0.178 0.401 0.619 0.481
+#  ## 1816 0.160 0.274 0.198 0.411 0.481 0.819
+
+## ---- eval = FALSE-------------------------------------------------------
+#  ids = c("P00750", "P00751", "P00752")
+#  prots = getUniProt(ids)
+#  print(prots)
+
+## ---- eval = FALSE-------------------------------------------------------
+#  ## [[1]]
+#  ## [1] "MDAMKRGLCCVLLLCGAVFVSPSQEIHARFRRGARSYQVICRDEKTQMIYQQHQSWLRPVLRSNRVEYCWCN
+#  ## SGRAQCHSVPVKSCSEPRCFNGGTCQQALYFSDFVCQCPEGFAGKCCEIDTRATCYEDQGISYRGTWSTAESGAECT
+#  ## NWNSSALAQKPYSGRRPDAIRLGLGNHNYCRNPDRDSKPWCYVFKAGKYSSEFCSTPACSEGNSDCYFGNGSAYRGT
+#  ## HSLTESGASCLPWNSMILIGKVYTAQNPSAQALGLGKHNYCRNPDGDAKPWCHVLKNRRLTWEYCDVPSCSTCGLRQ
+#  ## YSQPQFRIKGGLFADIASHPWQAAIFAKHRRSPGERFLCGGILISSCWILSAAHCFQERFPPHHLTVILGRTYRVVP
+#  ## GEEEQKFEVEKYIVHKEFDDDTYDNDIALLQLKSDSSRCAQESSVVRTVCLPPADLQLPDWTECELSGYGKHEALSP
+#  ## FYSERLKEAHVRLYPSSRCTSQHLLNRTVTDNMLCAGDTRSGGPQANLHDACQGDSGGPLVCLNDGRMTLVGIISWG
+#  ## LGCGQKDVPGVYTKVTNYLDWIRDNMRP"
+#  ##
+#  ## [[2]]
+#  ## [1] "MGSNLSPQLCLMPFILGLLSGGVTTTPWSLARPQGSCSLEGVEIKGGSFRLLQEGQALEYVCPSGFYPYPVQ
+#  ## TRTCRSTGSWSTLKTQDQKTVRKAECRAIHCPRPHDFENGEYWPRSPYYNVSDEISFHCYDGYTLRGSANRTCQVNG
+#  ## RWSGQTAICDNGAGYCSNPGIPIGTRKVGSQYRLEDSVTYHCSRGLTLRGSQRRTCQEGGSWSGTEPSCQDSFMYDT
+#  ## PQEVAEAFLSSLTETIEGVDAEDGHGPGEQQKRKIVLDPSGSMNIYLVLDGSDSIGASNFTGAKKCLVNLIEKVASY
+#  ## GVKPRYGLVTYATYPKIWVKVSEADSSNADWVTKQLNEINYEDHKLKSGTNTKKALQAVYSMMSWPDDVPPEGWNRT
+#  ## RHVIILMTDGLHNMGGDPITVIDEIRDLLYIGKDRKNPREDYLDVYVFGVGPLVNQVNINALASKKDNEQHVFKVKD
+#  ## MENLEDVFYQMIDESQSLSLCGMVWEHRKGTDYHKQPWQAKISVIRPSKGHESCMGAVVSEYFVLTAAHCFTVDDKE
+#  ## HSIKVSVGGEKRDLEIEVVLFHPNYNINGKKEAGIPEFYDYDVALIKLKNKLKYGQTIRPICLPCTEGTTRALRLPP
+#  ## TTTCQQQKEELLPAQDIKALFVSEEEKKLTRKEVYIKNGDKKGSCERDAQYAPGYDKVKDISEVVTPRFLCTGGVSP
+#  ## YADPNTCRGDSGGPLIVHKRSRFIQVGVISWGVVDVCKNQKRQKQVPAHARDFHINLFQVLPWLKEKLQDEDLGFL"
+#  ##
+#  ## [[3]]
+#  ## [1] "APPIQSRIIGGRECEKNSHPWQVAIYHYSSFQCGGVLVNPKWVLTAAHCKNDNYEVWLGRHNLFENENTAQF
+#  ## FGVTADFPHPGFNLSLLKXHTKADGKDYSHDLMLLRLQSPAKITDAVKVLELPTQEPELGSTCEASGWGSIEPGPDB
+#  ## FEFPDEIQCVQLTLLQNTFCABAHPBKVTESMLCAGYLPGGKDTCMGDSGGPLICNGMWQGITSWGHTPCGSANKPS
+#  ## IYTKLIFYLDWINDTITENP"
+
+## ---- protcheck----------------------------------------------------------
 x = readFASTA(system.file("protseq/P00750.fasta", package = "protr"))[[1]]
-# A real sequence
+# a real sequence
 protcheck(x)
-# An artificial sequence
+# an artificial sequence
 protcheck(paste(x, "Z", sep = ""))
 
-
-###################################################
-### code chunk number 22: protseg
-###################################################
+## ---- protseg------------------------------------------------------------
 protseg(x, aa = "M", k = 5)
-
 
