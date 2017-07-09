@@ -1,5 +1,5 @@
 Package: protr
-Version: 1.4-0
+Version: 1.4-1
 Title: Generating Various Numerical Representation Schemes for Protein
         Sequences
 Description: Comprehensive toolkit for generating various numerical
@@ -28,9 +28,9 @@ Suggests: knitr, rmarkdown, Biostrings, GOSemSim, foreach, doParallel,
         org.Hs.eg.db
 RoxygenNote: 5.0.1
 NeedsCompilation: no
-Packaged: 2017-06-06 16:03:17 UTC; nanx
+Packaged: 2017-07-09 00:15:03 UTC; nanx
 Author: Nan Xiao [aut, cre],
   Qing-Song Xu [aut],
   Dong-Sheng Cao [aut]
 Repository: CRAN
-Date/Publication: 2017-06-06 16:49:40 UTC
+Date/Publication: 2017-07-09 06:15:45 UTC
