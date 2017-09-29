@@ -1,5 +1,5 @@
 Package: protr
-Version: 1.4-1
+Version: 1.4-2
 Title: Generating Various Numerical Representation Schemes for Protein
         Sequences
 Description: Comprehensive toolkit for generating various numerical
@@ -17,7 +17,6 @@ Maintainer: Nan Xiao <me@nanx.me>
 License: BSD_3_clause + file LICENSE
 URL: https://nanx.me/protr/, https://github.com/road2stat/protr,
         http://protr.org
-Encoding: UTF-8
 BugReports: https://github.com/road2stat/protr/issues
 SystemRequirements: ncbi-blast+ (see
         <https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download>)
@@ -26,11 +25,12 @@ VignetteBuilder: knitr
 Depends: R (>= 3.0.2)
 Suggests: knitr, rmarkdown, Biostrings, GOSemSim, foreach, doParallel,
         org.Hs.eg.db
-RoxygenNote: 5.0.1
+Encoding: UTF-8
+RoxygenNote: 6.0.1.9000
 NeedsCompilation: no
-Packaged: 2017-07-09 00:15:03 UTC; nanx
+Packaged: 2017-09-28 23:03:35 UTC; nanx
 Author: Nan Xiao [aut, cre],
   Qing-Song Xu [aut],
   Dong-Sheng Cao [aut]
 Repository: CRAN
-Date/Publication: 2017-07-09 06:15:45 UTC
+Date/Publication: 2017-09-29 03:15:16 UTC

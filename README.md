@@ -78,7 +78,7 @@ ProtrWeb is a user-friendly web application for computing the protein sequence d
     * Sequence-order-coupling number
     * Quasi-sequence-order descriptors
 
-  * Pseudo amino acid composition
+  * Pseudo amino acid composition (PseAAC)
     * Pseudo amino acid composition
     * Amphiphilic pseudo amino acid composition
 
@@ -123,3 +123,7 @@ GO semantic similarity measures:
   * Website: https://nanx.me/protr/
   * CRAN: https://cran.r-project.org/package=protr
   * GitHub: https://github.com/road2stat/protr
+
+## Contribute
+
+To contribute to this project, please take a look at the [Contributing Guidelines](CONTRIBUTING.md) first. Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
