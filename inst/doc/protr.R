@@ -36,7 +36,7 @@ mitonchon = readFASTA(system.file(
 #  ## [1] 304
 
 ## ---- eval = FALSE-------------------------------------------------------
-#  # calculate APAAC descriptors
+#  # calculate APseAAC descriptors
 #  x1 = t(sapply(extracell, extractAPAAC))
 #  x2 = t(sapply(mitonchon, extractAPAAC))
 #  x  = rbind(x1, x2)
