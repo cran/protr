@@ -35,7 +35,7 @@
 #' See the examples below for a demonstration.
 #' The default value for \code{customprops} is \code{NULL}.
 #'
-#' @return A length \code{nlag} named vector
+#' @return A length \code{length(props) * nlag} named vector.
 #'
 #' @keywords extract normalized autocorrelation Moreau-Broto
 #'
@@ -70,7 +70,7 @@
 #'
 #' Sokal, R.R. and Thomson, B.A. (2006)
 #' Population structure inferred by local spatial autocorrelation:
-#' an Usage from an Amerindian tribal population.
+#' an usage from an Amerindian tribal population.
 #' \emph{American Journal of Physical Anthropology}, 129, 121-131.
 #'
 #' @examples
@@ -113,7 +113,9 @@ extractMoreauBroto = function(
 
   # 1. Compute Pr values for each type of property
 
-  AAidx = read.csv(system.file('sysdata/AAidx.csv', package = 'protr'), header = TRUE)
+  AAidx = read.csv(
+    system.file('sysdata/AAidx.csv', package = 'protr'),
+    header = TRUE)
 
   if (!is.null(customprops))
     AAidx = rbind(AAidx, customprops)
@@ -130,8 +132,9 @@ extractMoreauBroto = function(
   # 2. Replace character with numbers, also applies to less than 20 AA occured
 
   xSplitted = strsplit(x, split = '')[[1]]
-  AADict = c('A', 'R', 'N', 'D', 'C', 'E', 'Q', 'G', 'H', 'I',
-             'L', 'K', 'M', 'F', 'P', 'S', 'T', 'W', 'Y', 'V')
+  AADict = c(
+    'A', 'R', 'N', 'D', 'C', 'E', 'Q', 'G', 'H', 'I',
+    'L', 'K', 'M', 'F', 'P', 'S', 'T', 'W', 'Y', 'V')
   names(Pr) = AADict
 
   P = vector('list', n)

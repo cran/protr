@@ -42,7 +42,7 @@ See the examples below for a demonstration.
 The default value for \code{customprops} is \code{NULL}.}
 }
 \value{
-A length \code{nlag} named vector
+A length \code{length(props) * nlag} named vector.
 }
 \description{
 This function calculates the Geary
@@ -97,7 +97,7 @@ an autocorrelation analysis of sequence hydrophobicities.
 
 Sokal, R.R. and Thomson, B.A. (2006)
 Population structure inferred by local spatial autocorrelation:
-an Usage from an Amerindian tribal population.
+an usage from an Amerindian tribal population.
 \emph{American Journal of Physical Anthropology}, 129, 121-131.
 }
 \seealso{
