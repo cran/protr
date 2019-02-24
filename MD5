@@ -1,7 +1,7 @@
-683859f1b8e59ec9dd4cdb0eb9aea55f *DESCRIPTION
+dd237cd69f3af671bb8efbbc562604e4 *DESCRIPTION
 e9e2f27d2c1671a36e53334a0139f2ea *LICENSE
-0558021d8ab974ca6b7cc2a4d68757b0 *NAMESPACE
-72a62983f5a3d93407e1ed1a8fa09347 *NEWS.md
+24843505e47c59ef24c4556d0cb2f48b *NAMESPACE
+a033c0e052d75aba1a55745e1f265200 *NEWS.md
 e712c517748a67fce23c96f69b3cad7a *R/desc-01-AAC.R
 9d8259cf782a6f965673acc980aa6d3e *R/desc-02-DC.R
 5882341fddca09a092d6e2afb22038de *R/desc-03-TC.R
@@ -30,8 +30,8 @@ c5c54cf7e5a04c6da25498ae8c91caf2 *R/misc-04-protseg.R
 c8846fdaa32012aadffd87f37b89f8e7 *R/misc-05-getUniProt.R
 9d9df69dbda311bcfa8cc25fbc58a6c3 *R/misc-06-acc.R
 eccc6e632a4894257b3583ca95b04fb6 *R/misc-07-removeGaps.R
-518d94192eeb918808abf08edb7f1725 *R/par-01-parSeqSim.R
-a18914db457ad7eaf86575777a892fdc *R/par-02-parGOSim.R
+9e39bf46f846d0f23fc05aca506495a8 *R/par-01-parSeqSim.R
+b581e85204ac56eec092a72a23c40abb *R/par-02-parGOSim.R
 bfafcb039073fc2b25d27291bc9fc6af *R/pcm-01-extractScales.R
 ec78a12859fb4f7cccdf796a5986f6a0 *R/pcm-01-extractScalesGap.R
 d6a737ffeb2a4661b34cb96ab4777327 *R/pcm-02-extractDescScales.R
@@ -80,9 +80,9 @@ cd06e7f0cd64b800197fb41332eddc95 *data/AAWHIM.rda
 e4dc18863083c330da419217c919c2e7 *data/AAWalk.rda
 fe761e0c115a58ab00a61ad6c4f8801e *data/AAindex.rda
 a1d279ba8638cddc1461f4d5657f6a35 *inst/CITATION
-f4ffb38b1b6a355e18a95a0e9d5dc104 *inst/doc/protr.R
-b470d1916b1d4ad513699a37a393b3d4 *inst/doc/protr.Rmd
-e194790bf4576f80a652a4132f553cb5 *inst/doc/protr.html
+cbe9224121b7c2214de7da301e40e76b *inst/doc/protr.R
+bf6f86c352d824f3da38709e09a55ba5 *inst/doc/protr.Rmd
+9f6f055aa9742456fb9ba0ff9bc2edb3 *inst/doc/protr.html
 e9a8c531da4011cd6c79e837c7ca9775 *inst/protseq/4HHB.pdb
 4a16b7ca86e201cec2c42382c4445180 *inst/protseq/P00750.fasta
 dc85c304db0d96038b7cdab71913b2dc *inst/protseq/P08218.fasta
@@ -165,7 +165,8 @@ b308f70085db6d4d7551589b03613eba *man/extractQSO.Rd
 656c5e9ba55cee88229bfc9b78bc338e *man/extractTC.Rd
 dc876dda3fc68e6edc40f62a587a6f65 *man/getUniProt.Rd
 e08db537557d2bcb1e8e2263bea9d251 *man/parGOSim.Rd
-1e98ffa21086d3de3ec3c6844d0135e6 *man/parSeqSim.Rd
+27fa49b938a9635578bd0f8777f64042 *man/parSeqSim.Rd
+19e0d6f499b912d9a66bdd9f671aed18 *man/parSeqSimDisk.Rd
 239042c7cafca76a56924c5a7ade594b *man/protcheck.Rd
 e6f8a3b1b8db6d33d5c9a929915568ed *man/protr-package.Rd
 efe66f544e72dc371f9f483771c111ca *man/protseg.Rd
@@ -173,7 +174,7 @@ efe66f544e72dc371f9f483771c111ca *man/protseg.Rd
 6db6bed4452bca5beb970e44dad86f82 *man/readPDB.Rd
 34a9f5a704e47713622b8fef04f976ae *man/removeGaps.Rd
 f0b2d20a23ba007cd4d326c15677f781 *man/twoGOSim.Rd
-959d0bd6fa0314b861c40794f31aab22 *man/twoSeqSim.Rd
+6be755e60093b821d185ffc3483300b7 *man/twoSeqSim.Rd
 1cad9a1953295837c7d6ee0ebf1e5a52 *vignettes/bioinformatics.csl
 4eacfa48d71283d7a0f553326f306624 *vignettes/custom.css
 ca20138677851fa0865cf25eebc29d30 *vignettes/figures/AAindex.png
@@ -184,5 +185,5 @@ eacbe38823569968d7e4413412fc9cab *vignettes/figures/PAAC.png
 da448f7b8d2deccd0f5d05fb1ca037d7 *vignettes/figures/ctriad.png
 16b488e2325623291fd5948b310c0e0e *vignettes/figures/protrweb.png
 5cc79b10524abb80efa2643f4f889204 *vignettes/figures/roc.png
-b470d1916b1d4ad513699a37a393b3d4 *vignettes/protr.Rmd
+bf6f86c352d824f3da38709e09a55ba5 *vignettes/protr.Rmd
 8af5c5d667d5fe2b561716bab87c038b *vignettes/protr.bib
