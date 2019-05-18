@@ -1,7 +1,6 @@
 # protr  <a href="https://nanx.me/protr/"><img src="https://i.imgur.com/D0nDOWs.png" align="right" alt="logo" height="180" width="180" /></a>
 
-[![Build Status](https://travis-ci.org/road2stat/protr.svg?branch=master)](https://travis-ci.org/road2stat/protr)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/road2stat/protr?branch=master&svg=true)](https://ci.appveyor.com/project/road2stat/protr)
+[![Build Status](https://travis-ci.org/nanxstats/protr.svg?branch=master)](https://travis-ci.org/nanxstats/protr)
 [![CRAN Version](https://www.r-pkg.org/badges/version/protr)](https://cran.r-project.org/package=protr)
 [![Downloads from the RStudio CRAN mirror](https://cranlogs.r-pkg.org/badges/protr)](https://cranlogs.r-pkg.org/badges/protr)
 
@@ -42,18 +41,18 @@ Or try the latest version on GitHub:
 
 ```r
 # install.packages("devtools")
-devtools::install_github("road2stat/protr")
+devtools::install_github("nanxstats/protr")
 ```
 
 [Browse the package vignette](https://nanx.me/protr/articles/protr.html) for a quick-start.
 
-## Shiny Web Application
+## Shiny App
 
 ProtrWeb, the Shiny web application built on protr, can be accessed from [http://protr.org](http://protr.org).
 
 ProtrWeb is a user-friendly web application for computing the protein sequence descriptors (features) presented in the protr package.
 
-## Descriptors List
+## List of Supported Descriptors
 
 ### Commonly used descriptors
 
@@ -94,7 +93,7 @@ ProtrWeb is a user-friendly web application for computing the protein sequence d
   - Scales-based descriptors derived by multidimensional scaling
   - BLOSUM and PAM matrix-derived descriptors
 
-### Similarity Computation
+### Similarity computation
 
 Local and global pairwise sequence alignment for protein sequences:
 
@@ -117,12 +116,6 @@ GO semantic similarity measures:
 - 20+ pre-computed 2D and 3D descriptor sets for the 20 amino acids to use with the scales-based descriptors
 - BLOSUM and PAM matrices for the 20 amino acids
 - Meta information of the 20 amino acids
-
-## Links
-
-- Website: https://nanx.me/protr/
-- CRAN: https://cran.r-project.org/package=protr
-- GitHub: https://github.com/road2stat/protr
 
 ## Contribute
 

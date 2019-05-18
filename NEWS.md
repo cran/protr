@@ -1,3 +1,11 @@
+# protr 1.6-2 (2019-05-18)
+
+## Improvements
+
+- Switched to the tidyverse code style.
+- Updated GitHub repository links to reflect the handle change.
+- Removed AppVeyor CI due to the frequent Bioconductor dependency installation issues.
+
 # protr 1.6-1 (2019-02-24)
 
 ## Improvements
@@ -39,7 +47,7 @@
 
 ## Bug Fixes
 
-- Resolved a critical bug due to improper `ifelse` conditioning ([3f6e106](https://github.com/road2stat/protr/commit/3f6e106c93ab9f28c532547f68b3cd9d5cc3d9b4)) for the distribution descriptor in CTD. We thank Jielu Yan from the University of Macau for kindly reporting this issue.
+- Resolved a critical bug due to improper `ifelse` conditioning ([3f6e106](https://github.com/nanxstats/protr/commit/3f6e106c93ab9f28c532547f68b3cd9d5cc3d9b4)) for the distribution descriptor in CTD. We thank Jielu Yan from the University of Macau for kindly reporting this issue.
 
 ## Improvements
 

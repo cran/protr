@@ -1,5 +1,5 @@
 Package: protr
-Version: 1.6-1
+Version: 1.6-2
 Title: Generating Various Numerical Representation Schemes for Protein
         Sequences
 Description: Comprehensive toolkit for generating various numerical
@@ -15,9 +15,9 @@ Authors@R: c(
     person("Dong-Sheng", "Cao", role = "aut"))
 Maintainer: Nan Xiao <me@nanx.me>
 License: BSD_3_clause + file LICENSE
-URL: https://nanx.me/protr/, https://github.com/road2stat/protr,
+URL: https://nanx.me/protr/, https://github.com/nanxstats/protr,
         http://protr.org
-BugReports: https://github.com/road2stat/protr/issues
+BugReports: https://github.com/nanxstats/protr/issues
 SystemRequirements: ncbi-blast+ (see
         <https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download>)
 LazyData: true
@@ -28,9 +28,9 @@ Suggests: knitr, rmarkdown, Biostrings, GOSemSim, foreach, doParallel,
 Encoding: UTF-8
 RoxygenNote: 6.1.1
 NeedsCompilation: no
-Packaged: 2019-02-24 19:13:11 UTC; nanx
+Packaged: 2019-05-18 06:36:16 UTC; nanx
 Author: Nan Xiao [aut, cre] (<https://orcid.org/0000-0002-0250-5673>),
   Qing-Song Xu [aut],
   Dong-Sheng Cao [aut]
 Repository: CRAN
-Date/Publication: 2019-02-24 19:30:02 UTC
+Date/Publication: 2019-05-18 07:00:03 UTC

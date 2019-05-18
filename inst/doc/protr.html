@@ -11,7 +11,7 @@
 
 <meta name="author" content="Nan Xiao &lt;https://nanx.me&gt;" />
 
-<meta name="date" content="2019-02-24" />
+<meta name="date" content="2019-05-18" />
 
 <title>protr: R package for generating various numerical representation schemes of protein sequences</title>
 
@@ -1493,9 +1493,7 @@ background: #eee
 }
 </style>
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -1526,8 +1524,6 @@ summary {
 </style>
 
 
-
-<div class="container-fluid main-container">
 
 <!-- tabsets -->
 
@@ -1686,6 +1682,16 @@ div.tocify {
 
 </style>
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row-fluid">
 <div class="col-xs-12 col-sm-4 col-md-3">
@@ -1703,16 +1709,19 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">protr: R package for generating various numerical representation schemes of protein sequences</h1>
-<h4 class="author"><em>Nan Xiao &lt;<a href="https://nanx.me" class="uri">https://nanx.me</a>&gt;</em></h4>
-<h4 class="date"><em>2019-02-24</em></h4>
+<h4 class="author">Nan Xiao &lt;<a href="https://nanx.me" class="uri">https://nanx.me</a>&gt;</h4>
+<h4 class="date">2019-05-18</h4>
 
 </div>
 
 
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
-<p>The protr package offers a unique and comprehensive toolkit for generating various numerical representation schemes of protein sequences. The descriptors included are extensively utilized in bioinformatics and chemogenomics research. The commonly used descriptors listed in protr include amino acid composition, autocorrelation, CTD, conjoint traid, quasi-sequence order, pseudo amino acid composition, and profile-based descriptors derived by Position-Specific Scoring Matrix (PSSM). The descriptors for proteochemometric (PCM) modeling, includes the scales-based descriptors derived by principal components analysis, factor analysis, multidimensional scaling, amino acid properties (AAindex), 20+ classes of 2D and 3D molecular descriptors (Topological, WHIM, VHSE, etc.), and BLOSUM/PAM matrix-derived descriptors. The protr package also integrates the function of parallelized similarity computation derived by pairwise protein sequence alignment and Gene Ontology (GO) semantic similarity measures. ProtrWeb, the web application built on protr, can be accessed from <a href="http://protr.org" class="uri">http://protr.org</a>.</p>
-<p>If you find protr is useful in your research, please feel free to cite our paper:</p>
+<p>The protr package offers a unique and comprehensive toolkit for generating various numerical representation schemes of protein sequences. The descriptors included are extensively utilized in bioinformatics and chemogenomics research.</p>
+<p>The commonly used descriptors listed in protr include amino acid composition, autocorrelation, CTD, conjoint traid, quasi-sequence order, pseudo amino acid composition, and profile-based descriptors derived by Position-Specific Scoring Matrix (PSSM).</p>
+<p>The descriptors for proteochemometric (PCM) modeling, includes the scales-based descriptors derived by principal components analysis, factor analysis, multidimensional scaling, amino acid properties (AAindex), 20+ classes of 2D and 3D molecular descriptors (Topological, WHIM, VHSE, etc.), and BLOSUM/PAM matrix-derived descriptors.</p>
+<p>The protr package also implemented parallelized similarity computation derived by pairwise protein sequence alignment and Gene Ontology (GO) semantic similarity measures. ProtrWeb, the web application built on protr, can be accessed from <a href="http://protr.org" class="uri">http://protr.org</a>.</p>
+<p>If you find protr useful in your research, please feel free to cite our paper:</p>
 <blockquote>
 Nan Xiao, Dong-Sheng Cao, Min-Feng Zhu, and Qing-Song Xu. (2015). protr/ProtrWeb: R package and web server for generating various numerical representation schemes of protein sequences. <em>Bioinformatics</em> 31 (11), 1857-1859.
 </blockquote>
@@ -1731,57 +1740,61 @@ Nan Xiao, Dong-Sheng Cao, Min-Feng Zhu, and Qing-Song Xu. (2015). protr/ProtrWeb
   url = {http://bioinformatics.oxfordjournals.org/content/31/11/1857}
 }</code></pre>
 </div>
-<div id="an-example-workflow" class="section level1">
-<h1><span class="header-section-number">2</span> An Example Workflow</h1>
-<p>Here we use the subcellular localization dataset of human proteins presented in <span class="citation">Chou and Shen (2008)</span> to demonstrate the workflow of using protr.</p>
+<div id="an-example-predictive-modeling-workflow" class="section level1">
+<h1><span class="header-section-number">2</span> An Example Predictive Modeling Workflow</h1>
+<p>Here we use the subcellular localization dataset of human proteins presented in <span class="citation">Chou and Shen (2008)</span> to demonstrate the basic usage of protr.</p>
 <p>The complete dataset includes 3,134 protein sequences (2,750 different proteins), classified into 14 human subcellular locations. We selected two classes of proteins as our benchmark dataset. Class 1 contains 325 <em>extracell</em> proteins, and class 2 includes 307 <em>mitochondrion</em> proteins. Here we aim to build a random forest classification model to classify these two types of proteins.</p>
 <p>First, we load the protr package, then read the protein sequences stored in two separated FASTA files with <code>readFASTA()</code>:</p>
 <pre class="r"><code>library(&quot;protr&quot;)
 
 # load FASTA files
-extracell = readFASTA(system.file(
-  &quot;protseq/extracell.fasta&quot;, package = &quot;protr&quot;))
-mitonchon = readFASTA(system.file(
-  &quot;protseq/mitochondrion.fasta&quot;, package = &quot;protr&quot;))</code></pre>
+extracell &lt;- readFASTA(system.file(
+  &quot;protseq/extracell.fasta&quot;,
+  package = &quot;protr&quot;
+))
+mitonchon &lt;- readFASTA(system.file(
+  &quot;protseq/mitochondrion.fasta&quot;,
+  package = &quot;protr&quot;
+))</code></pre>
 <p>To read protein sequences stored in PDB format files, use <code>readPDB()</code> instead. The loaded sequences will be stored as two lists in R, and each component in the list is a character string representing one protein sequence. In this case, there are 325 <em>extracell</em> protein sequences and 306 <em>mitonchon</em> protein sequences:</p>
 <pre class="r"><code>length(extracell)</code></pre>
 <pre class="r"><code>## [1] 325</code></pre>
 <pre class="r"><code>length(mitonchon)</code></pre>
 <pre class="r"><code>## [1] 306</code></pre>
 <p>To ensure that the protein sequences only have the 20 standard amino acid types which is usually required for the descriptor computation, we use the <code>protcheck()</code> function to do the amino acid type sanity check and remove the <em>non-standard</em> sequences:</p>
-<pre class="r"><code>extracell = extracell[(sapply(extracell, protcheck))]
-mitonchon = mitonchon[(sapply(mitonchon, protcheck))]</code></pre>
+<pre class="r"><code>extracell &lt;- extracell[(sapply(extracell, protcheck))]
+mitonchon &lt;- mitonchon[(sapply(mitonchon, protcheck))]</code></pre>
 <pre class="r"><code>length(extracell)</code></pre>
 <pre class="r"><code>## [1] 323</code></pre>
 <pre class="r"><code>length(mitonchon)</code></pre>
 <pre class="r"><code>## [1] 304</code></pre>
 <p>Two protein sequences were removed from each class. For the remaining sequences, we calculate the Type II PseAAC descriptor, i.e., the amphiphilic pseudo amino acid composition (APseAAC) descriptor <span class="citation">(Chou, 2005)</span> and make class labels for classification modeling.</p>
 <pre class="r"><code># calculate APseAAC descriptors
-x1 = t(sapply(extracell, extractAPAAC))
-x2 = t(sapply(mitonchon, extractAPAAC))
-x  = rbind(x1, x2)
+x1 &lt;- t(sapply(extracell, extractAPAAC))
+x2 &lt;- t(sapply(mitonchon, extractAPAAC))
+x &lt;- rbind(x1, x2)
 
 # make class labels
-labels = as.factor(c(rep(0, length(extracell)), rep(1, length(mitonchon))))</code></pre>
+labels &lt;- as.factor(c(rep(0, length(extracell)), rep(1, length(mitonchon))))</code></pre>
 <p>In protr, the functions of commonly used descriptors for protein sequences and proteochemometric (PCM) modeling descriptors are named after <code>extract...()</code>.</p>
 <p>Next, we will split the data into a 75% training set and a 25% test set.</p>
 <pre class="r"><code>set.seed(1001)
 
 # split training and test set
-tr.idx = c(
+tr.idx &lt;- c(
   sample(1:nrow(x1), round(nrow(x1) * 0.75)),
   sample(nrow(x1) + 1:nrow(x2), round(nrow(x2) * 0.75))
 )
-te.idx = setdiff(1:nrow(x), tr.idx)
+te.idx &lt;- setdiff(1:nrow(x), tr.idx)
 
-x.tr = x[tr.idx, ]
-x.te = x[te.idx, ]
-y.tr = labels[tr.idx]
-y.te = labels[te.idx]</code></pre>
+x.tr &lt;- x[tr.idx, ]
+x.te &lt;- x[te.idx, ]
+y.tr &lt;- labels[tr.idx]
+y.te &lt;- labels[te.idx]</code></pre>
 <p>We will train a random forest classification model on the training set with 5-fold cross-validation, using the <code>randomForest</code> package.</p>
 <pre class="r"><code>library(&quot;randomForest&quot;)
-rf.fit = randomForest(x.tr, y.tr, cv.fold = 5)
-print(rf.fit)</code></pre>
+rf.fit &lt;- randomForest(x.tr, y.tr, cv.fold = 5)
+rf.fit</code></pre>
 <p>The training result is:</p>
 <pre class="r"><code>## Call:
 ##  randomForest(x = x.tr, y = y.tr, cv.fold = 5)
@@ -1796,7 +1809,7 @@ print(rf.fit)</code></pre>
 ## 1  72 156   0.3157895</code></pre>
 <p>With the model trained on the training set, we predict on the test set and plot the ROC curve with the <code>pROC</code> package, as is shown in Figure 1.</p>
 <pre class="r"><code># predict on test set
-rf.pred = predict(rf.fit, newdata = x.te, type = &quot;prob&quot;)[, 1]
+rf.pred &lt;- predict(rf.fit, newdata = x.te, type = &quot;prob&quot;)[, 1]
 
 # plot ROC curve
 library(&quot;pROC&quot;)
@@ -1815,41 +1828,41 @@ Figure 1: ROC curve for the test set of protein subcellular localization data
 </div>
 <div id="package-overview" class="section level1">
 <h1><span class="header-section-number">3</span> Package Overview</h1>
-<p>The protr package <span class="citation">(Xiao <em>et al.</em>, 2015)</span> implemented most of the state-of-the-art protein sequence descriptors with R. Generally, each type of the descriptors (features) can be calculated with a function named <code>extractX()</code> in the protr package, where <code>X</code> stands for the abbrevation of the descriptor name. The descriptors and the function names implemented are listed below:</p>
+<p>The protr package <span class="citation">(Xiao <em>et al.</em>, 2015)</span> implemented most of the state-of-the-art protein sequence descriptors with R. Generally, each type of the descriptors (features) can be calculated with a function named <code>extractX()</code> in the protr package, where <code>X</code> stands for the abbrevation of the descriptor name. The descriptors are:</p>
 <ul>
-<li><p>Amino acid composition</p>
+<li>Amino acid composition
 <ul>
 <li><code>extractAAC()</code> - Amino acid composition</li>
 <li><code>extractDC()</code> - Dipeptide composition</li>
 <li><code>extractTC()</code> - Tripeptide composition</li>
 </ul></li>
-<li><p>Autocorrelation</p>
+<li>Autocorrelation
 <ul>
 <li><code>extractMoreauBroto()</code> - Normalized Moreau-Broto autocorrelation</li>
 <li><code>extractMoran()</code> - Moran autocorrelation</li>
 <li><code>extractGeary()</code> - Geary autocorrelation</li>
 </ul></li>
-<li><p>CTD descriptors</p>
+<li>CTD descriptors
 <ul>
 <li><code>extractCTDC()</code> - Composition</li>
 <li><code>extractCTDT()</code> - Transition</li>
 <li><code>extractCTDD()</code> - Distribution</li>
 </ul></li>
-<li><p>Conjoint triad descriptors</p>
+<li>Conjoint triad descriptors
 <ul>
 <li><code>extractCTriad()</code> - Conjoint triad descriptors</li>
 </ul></li>
-<li><p>Quasi-sequence-order descriptors</p>
+<li>Quasi-sequence-order descriptors
 <ul>
 <li><code>extractSOCN()</code> - Sequence-order-coupling number</li>
 <li><code>extractQSO()</code> - Quasi-sequence-order descriptors</li>
 </ul></li>
-<li><p>Pseudo-amino acid composition</p>
+<li>Pseudo-amino acid composition
 <ul>
 <li><code>extractPAAC()</code> - Pseudo-amino acid composition (PseAAC)</li>
 <li><code>extractAPAAC()</code> - Amphiphilic pseudo-amino acid composition (APseAAC)</li>
 </ul></li>
-<li><p>Profile-based descriptors</p>
+<li>Profile-based descriptors
 <ul>
 <li><code>extractPSSM()</code></li>
 <li><code>extractPSSMAcc()</code></li>
@@ -1858,14 +1871,14 @@ Figure 1: ROC curve for the test set of protein subcellular localization data
 </ul>
 <p>The descriptors commonly used in Proteochemometric Modeling (PCM) implemented in protr include:</p>
 <ul>
-<li><p><code>extractScales()</code>, <code>extractScalesGap()</code> - Scales-based descriptors derived by Principal Components Analysis</p>
+<li><code>extractScales()</code>, <code>extractScalesGap()</code> - Scales-based descriptors derived by Principal Components Analysis
 <ul>
 <li><code>extractProtFP()</code>, <code>extractProtFPGap()</code> - Scales-based descriptors derived by amino acid properties from AAindex (a.k.a. <em>Protein Fingerprint</em>)</li>
 <li><code>extractDescScales()</code> - Scales-based descriptors derived by 20+ classes of 2D and 3D molecular descriptors (Topological, WHIM, VHSE, etc.)</li>
 </ul></li>
 <li><code>extractFAScales()</code> - Scales-based descriptors derived by Factor Analysis</li>
 <li><code>extractMDSScales()</code> - Scales-based descriptors derived by Multidimensional Scaling</li>
-<li><p><code>extractBLOSUM()</code> - BLOSUM and PAM matrix-derived descriptors</p></li>
+<li><code>extractBLOSUM()</code> - BLOSUM and PAM matrix-derived descriptors</li>
 </ul>
 <p>The protr package integrates the function of parallelized similarity score computation derived by local or global protein sequence alignment between a list of protein sequences, the sequence alignment computation is provided by <code>Biostrings</code>, the corresponding functions listed in the <code>protr</code> package include:</p>
 <ul>
@@ -1895,8 +1908,10 @@ f(r) = \frac{N_r}{N} \quad r = 1, 2, \ldots, 20.
 <p>As was described above, we can use the function <code>extractAAC()</code> to extract the descriptors (features) from protein sequences:</p>
 <pre class="r"><code>library(&quot;protr&quot;)
 
-x = readFASTA(system.file(
-  &quot;protseq/P00750.fasta&quot;, package = &quot;protr&quot;))[[1]]
+x &lt;- readFASTA(system.file(
+  &quot;protseq/P00750.fasta&quot;,
+  package = &quot;protr&quot;
+))[[1]]
 
 extractAAC(x)</code></pre>
 <pre><code>##          A          R          N          D          C          E 
@@ -1916,7 +1931,7 @@ extractAAC(x)</code></pre>
 f(r, s) = \frac{N_{rs}}{N - 1} \quad r, s = 1, 2, \ldots, 20.
 \]</span></p>
 <p>where <span class="math inline">\(N_{rs}\)</span> is the number of dipeptide represented by amino acid type <span class="math inline">\(r\)</span> and type <span class="math inline">\(s\)</span>. Similar to <code>extractAAC()</code>, here we use <code>extractDC()</code> to compute the descriptors:</p>
-<pre class="r"><code>dc = extractDC(x)
+<pre class="r"><code>dc &lt;- extractDC(x)
 head(dc, n = 30L)</code></pre>
 <pre><code>##          AA          RA          NA          DA          CA          EA 
 ## 0.003565062 0.003565062 0.000000000 0.007130125 0.003565062 0.003565062 
@@ -1937,7 +1952,7 @@ head(dc, n = 30L)</code></pre>
 f(r, s, t) = \frac{N_{rst}}{N - 2} \quad r, s, t = 1, 2, \ldots, 20
 \]</span></p>
 <p>where <span class="math inline">\(N_{rst}\)</span> is the number of tripeptides represented by amino acid type <span class="math inline">\(r\)</span>, <span class="math inline">\(s\)</span>, and <span class="math inline">\(t\)</span>. With function <code>extractTC()</code>, we can easily obtain the length-8000 descriptor, to save some space, here we also omitted the long outputs:</p>
-<pre class="r"><code>tc = extractTC(x)
+<pre class="r"><code>tc &lt;- extractTC(x)
 head(tc, n = 36L)</code></pre>
 <pre><code>##         AAA         RAA         NAA         DAA         CAA         EAA 
 ## 0.000000000 0.000000000 0.000000000 0.000000000 0.000000000 0.000000000 
@@ -1979,7 +1994,7 @@ AC(d) = \sum_{i=1}^{N-d} P_i P_{i + d} \quad d = 1, 2, \ldots, \textrm{nlag}
 ATS(d) = \frac{AC(d)}{N-d} \quad d = 1, 2, \ldots, \textrm{nlag}
 \]</span></p>
 <p>The corresponding function for this descriptor is <code>extractMoreauBroto()</code>. A typical call would be:</p>
-<pre class="r"><code>moreau = extractMoreauBroto(x)
+<pre class="r"><code>moreau &lt;- extractMoreauBroto(x)
 head(moreau, n = 36L)</code></pre>
 <pre><code>##  CIDH920105.lag1  CIDH920105.lag2  CIDH920105.lag3  CIDH920105.lag4 
 ##      0.081573213     -0.016064817     -0.015982990     -0.025739038 
@@ -2012,27 +2027,30 @@ head(moreau, n = 36L)</code></pre>
 </ul>
 <p>Users can change the property names of AAindex database with the argument <code>props</code>. The AAindex data shipped with protr can be loaded by <code>data(AAindex)</code>, which has the detailed information of each property. With the argument <code>customprops</code> and <code>nlag</code>, users can specify their own properties and lag value to calculate with. For example:</p>
 <pre class="r"><code># Define 3 custom properties
-myprops = data.frame(
+myprops &lt;- data.frame(
   AccNo = c(&quot;MyProp1&quot;, &quot;MyProp2&quot;, &quot;MyProp3&quot;),
-  A = c(0.62,  -0.5, 15),  R = c(-2.53,   3, 101),
-  N = c(-0.78,  0.2, 58),  D = c(-0.9,    3, 59),
-  C = c(0.29,    -1, 47),  E = c(-0.74,   3, 73),
-  Q = c(-0.85,  0.2, 72),  G = c(0.48,    0, 1),
-  H = c(-0.4,  -0.5, 82),  I = c(1.38, -1.8, 57),
-  L = c(1.06,  -1.8, 57),  K = c(-1.5,    3, 73),
-  M = c(0.64,  -1.3, 75),  F = c(1.19, -2.5, 91),
-  P = c(0.12,     0, 42),  S = c(-0.18, 0.3, 31),
-  T = c(-0.05, -0.4, 45),  W = c(0.81, -3.4, 130),
-  Y = c(0.26,  -2.3, 107), V = c(1.08, -1.5, 43)
+  A = c(0.62, -0.5, 15), R = c(-2.53, 3, 101),
+  N = c(-0.78, 0.2, 58), D = c(-0.9, 3, 59),
+  C = c(0.29, -1, 47), E = c(-0.74, 3, 73),
+  Q = c(-0.85, 0.2, 72), G = c(0.48, 0, 1),
+  H = c(-0.4, -0.5, 82), I = c(1.38, -1.8, 57),
+  L = c(1.06, -1.8, 57), K = c(-1.5, 3, 73),
+  M = c(0.64, -1.3, 75), F = c(1.19, -2.5, 91),
+  P = c(0.12, 0, 42), S = c(-0.18, 0.3, 31),
+  T = c(-0.05, -0.4, 45), W = c(0.81, -3.4, 130),
+  Y = c(0.26, -2.3, 107), V = c(1.08, -1.5, 43)
 )
 
 # Use 4 properties in the AAindex database, and 3 cutomized properties
-moreau2 = extractMoreauBroto(
-  x, customprops = myprops,
+moreau2 &lt;- extractMoreauBroto(
+  x,
+  customprops = myprops,
   props = c(
     &quot;CIDH920105&quot;, &quot;BHAR880101&quot;,
     &quot;CHAM820101&quot;, &quot;CHAM820102&quot;,
-    &quot;MyProp1&quot;, &quot;MyProp2&quot;, &quot;MyProp3&quot;))
+    &quot;MyProp1&quot;, &quot;MyProp2&quot;, &quot;MyProp3&quot;
+  )
+)
 
 head(moreau2, n = 36L)</code></pre>
 <pre><code>##  CIDH920105.lag1  CIDH920105.lag2  CIDH920105.lag3  CIDH920105.lag4 
@@ -2069,12 +2087,15 @@ I(d) = \frac{\frac{1}{N-d} \sum_{i=1}^{N-d} (P_i - \bar{P}&#39;) (P_{i+d} - \bar
 <p>With <code>extractMoran()</code> (which has the identical parameters as <code>extractMoreauBroto()</code>), we can compute the Moran autocorrelation descriptors (only print out the first 36 elements):</p>
 <pre class="r"><code># Use the 3 custom properties defined before
 # and 4 properties in the AAindex database
-moran = extractMoran(
-  x, customprops = myprops,
+moran &lt;- extractMoran(
+  x,
+  customprops = myprops,
   props = c(
     &quot;CIDH920105&quot;, &quot;BHAR880101&quot;,
     &quot;CHAM820101&quot;, &quot;CHAM820102&quot;,
-    &quot;MyProp1&quot;, &quot;MyProp2&quot;, &quot;MyProp3&quot;))
+    &quot;MyProp1&quot;, &quot;MyProp2&quot;, &quot;MyProp3&quot;
+  )
+)
 
 head(moran, n = 36L)</code></pre>
 <pre><code>##  CIDH920105.lag1  CIDH920105.lag2  CIDH920105.lag3  CIDH920105.lag4 
@@ -2106,12 +2127,15 @@ C(d) = \frac{\frac{1}{2(N-d)} \sum_{i=1}^{N-d} (P_i - P_{i+d})^2}{\frac{1}{N-1} 
 <p>For each amino acid index, there will be <span class="math inline">\(3 \times \textrm{nlag}\)</span> autocorrelation descriptors. The usage of <code>extractGeary()</code> is exactly the same as <code>extractMoreauBroto()</code> and <code>extractMoran()</code>:</p>
 <pre class="r"><code># Use the 3 custom properties defined before
 # and 4 properties in the AAindex database
-geary = extractGeary(
-  x, customprops = myprops,
+geary &lt;- extractGeary(
+  x,
+  customprops = myprops,
   props = c(
     &quot;CIDH920105&quot;, &quot;BHAR880101&quot;,
     &quot;CHAM820101&quot;, &quot;CHAM820102&quot;,
-    &quot;MyProp1&quot;, &quot;MyProp2&quot;, &quot;MyProp3&quot;))
+    &quot;MyProp1&quot;, &quot;MyProp2&quot;, &quot;MyProp3&quot;
+  )
+)
 
 head(geary, n = 36L)</code></pre>
 <pre><code>##  CIDH920105.lag1  CIDH920105.lag2  CIDH920105.lag3  CIDH920105.lag4 
@@ -2445,7 +2469,7 @@ d_i = \frac{f_i - \min\{\,f_1, f_2 , \ldots, f_{343}\,\}}{\max\{\,f_1, f_2, \ldo
 \]</span></p>
 <p>The numerical value of <span class="math inline">\(d_i\)</span> of each protein ranges from 0 to 1, which thereby enables the comparison between proteins. Accordingly, we obtain another vector space (designated <span class="math inline">\(\mathbf{D}\)</span>) consisting of <span class="math inline">\(d_i\)</span> to represent protein.</p>
 <p>To compute conjoint triads of protein sequences, we can simply use:</p>
-<pre class="r"><code>ctriad = extractCTriad(x)
+<pre class="r"><code>ctriad &lt;- extractCTriad(x)
 head(ctriad, n = 65L)</code></pre>
 <pre><code>## VS111 VS211 VS311 VS411 VS511 VS611 VS711 VS121 VS221 VS321 VS421 VS521 
 ##   0.1   0.3   0.6   0.2   0.4   0.0   0.3   1.0   0.6   0.5   0.0   0.2 
@@ -2744,20 +2768,24 @@ P_c = \frac{w \tau_u}{\sum_{r=1}^{20} f_r + w \sum_{j=1}^{2 \lambda} \tau_j} \qu
 <li>Scales-based descriptors derived by Amino Acid Properties from AAindex (Protein Fingerprint)</li>
 <li>Scales-based descriptors derived by 20+ classes of 2D and 3D molecular descriptors (Topological, WHIM, VHSE, etc.)</li>
 </ul></li>
-<li>Scales-based descriptors derived by Factor Analysis</li>
-<li>Scales-based descriptors derived by Multidimensional Scaling</li>
+<li><p>Scales-based descriptors derived by Factor Analysis</p></li>
+<li><p>Scales-based descriptors derived by Multidimensional Scaling</p></li>
 <li><p>BLOSUM and PAM matrix-derived descriptors</p></li>
 </ul>
 <p>Note that each of the scales-based descriptor functions are freely to combine with the more than 20 classes of 2D and 3D molecular descriptors to construct highly customized scales-based descriptors. Of course, these functions are designed to be flexible enough that users can provide totally self-defined property matrices to construct scales-based descriptors.</p>
 <p>For example, to compute the “topological scales” derived by PCA (using the first 5 principal components), one can use <code>extractDescScales()</code>:</p>
-<pre class="r"><code>x = readFASTA(system.file(
-  &quot;protseq/P00750.fasta&quot;, package = &quot;protr&quot;))[[1]]
+<pre class="r"><code>x &lt;- readFASTA(system.file(
+  &quot;protseq/P00750.fasta&quot;,
+  package = &quot;protr&quot;
+))[[1]]
 
-descscales = extractDescScales(
-  x, propmat = &quot;AATopo&quot;,
+descscales &lt;- extractDescScales(
+  x,
+  propmat = &quot;AATopo&quot;,
   index = c(37:41, 43:47),
-  pc = 5, lag = 7, silent = FALSE)</code></pre>
-<pre><code>## Summary of the first 5 principal components:
+  pc = 5, lag = 7, silent = FALSE
+)</code></pre>
+<pre><code>## Summary of the first 5 principal components: 
 ##                             PC1      PC2       PC3       PC4        PC5
 ## Standard deviation     2.581537 1.754133 0.4621854 0.1918666 0.08972087
 ## Proportion of Variance 0.666430 0.307700 0.0213600 0.0036800 0.00080000
@@ -2774,13 +2802,17 @@ descscales = extractDescScales(
 ##     scl1.lag3     scl2.lag3     scl3.lag3     scl4.lag3     scl5.lag3 
 ##  2.011431e-02 -9.211136e-02 -1.461755e-03  6.747801e-04  2.386782e-04</code></pre>
 <p>For another example, to compute the descriptors derived by the BLOSUM62 matrix and use the first 5 scales, one can use:</p>
-<pre class="r"><code>x = readFASTA(system.file(
-  &quot;protseq/P00750.fasta&quot;, package = &quot;protr&quot;))[[1]]
+<pre class="r"><code>x &lt;- readFASTA(system.file(
+  &quot;protseq/P00750.fasta&quot;,
+  package = &quot;protr&quot;
+))[[1]]
 
-blosum = extractBLOSUM(
-  x, submat = &quot;AABLOSUM62&quot;,
-  k = 5, lag = 7, scale = TRUE, silent = FALSE)</code></pre>
-<pre><code>## Relative importance of all the possible 20 scales:
+blosum &lt;- extractBLOSUM(
+  x,
+  submat = &quot;AABLOSUM62&quot;,
+  k = 5, lag = 7, scale = TRUE, silent = FALSE
+)</code></pre>
+<pre><code>## Relative importance of all the possible 20 scales: 
 ##  [1]  1.204960e+01  7.982007e+00  6.254364e+00  4.533706e+00  4.326286e+00
 ##  [6]  3.850579e+00  3.752197e+00  3.538207e+00  3.139155e+00  2.546405e+00
 ## [11]  2.373286e+00  1.666259e+00  1.553126e+00  1.263685e+00  1.024699e+00
@@ -2801,14 +2833,14 @@ blosum = extractBLOSUM(
 <h1><span class="header-section-number">6</span> Similarity Calculation by Sequence Alignment</h1>
 <p>Similarity computation derived by local or global protein sequence alignment between a list of protein sequences is of great need in protein research. However, this type of pairwise similarity computation often computationally intensive, especially when there exists many protein sequences. Luckily, this process is also highly parallelizable, the protr package integrates the function of parallelized similarity computation derived by local or global protein sequence alignment between a list of protein sequences.</p>
 <p>The function <code>twoSeqSim()</code> calculates the alignment result between two protein sequences. The function <code>parSeqSim()</code> calculates the pairwise similarity calculation with a list of protein sequences in parallel:</p>
-<pre class="r"><code>s1 = readFASTA(system.file(&quot;protseq/P00750.fasta&quot;, package = &quot;protr&quot;))[[1]]
-s2 = readFASTA(system.file(&quot;protseq/P08218.fasta&quot;, package = &quot;protr&quot;))[[1]]
-s3 = readFASTA(system.file(&quot;protseq/P10323.fasta&quot;, package = &quot;protr&quot;))[[1]]
-s4 = readFASTA(system.file(&quot;protseq/P20160.fasta&quot;, package = &quot;protr&quot;))[[1]]
-s5 = readFASTA(system.file(&quot;protseq/Q9NZP8.fasta&quot;, package = &quot;protr&quot;))[[1]]
-plist = list(s1, s2, s3, s4, s5)
-psimmat = parSeqSim(plist, cores = 4, type = &quot;local&quot;, submat = &quot;BLOSUM62&quot;)
-print(psimmat)</code></pre>
+<pre class="r"><code>s1 &lt;- readFASTA(system.file(&quot;protseq/P00750.fasta&quot;, package = &quot;protr&quot;))[[1]]
+s2 &lt;- readFASTA(system.file(&quot;protseq/P08218.fasta&quot;, package = &quot;protr&quot;))[[1]]
+s3 &lt;- readFASTA(system.file(&quot;protseq/P10323.fasta&quot;, package = &quot;protr&quot;))[[1]]
+s4 &lt;- readFASTA(system.file(&quot;protseq/P20160.fasta&quot;, package = &quot;protr&quot;))[[1]]
+s5 &lt;- readFASTA(system.file(&quot;protseq/Q9NZP8.fasta&quot;, package = &quot;protr&quot;))[[1]]
+plist &lt;- list(s1, s2, s3, s4, s5)
+psimmat &lt;- parSeqSim(plist, cores = 4, type = &quot;local&quot;, submat = &quot;BLOSUM62&quot;)
+psimmat</code></pre>
 <pre class="r"><code>##            [,1]       [,2]       [,3]       [,4]       [,5]
 ## [1,] 1.00000000 0.11825938 0.10236985 0.04921696 0.03943488
 ## [2,] 0.11825938 1.00000000 0.18858241 0.12124217 0.06391103
@@ -2828,26 +2860,26 @@ print(psimmat)</code></pre>
 <p>The protr package also integrates the function of similarity score computation derived by Gene Ontology (GO) semantic similarity measures between a list of GO terms or Entrez Gene IDs.</p>
 <p>The function <code>twoGOSim()</code> calculates the similarity derived by GO-terms semantic similarity measures between two GO terms / Entrez Gene IDs, and the function <code>parGOSim()</code> calculates the pairwise similarity with a list of GO terms / Entrez Gene IDs:</p>
 <pre class="r"><code># By GO Terms
-go1 = c(
+go1 &lt;- c(
   &quot;GO:0005215&quot;, &quot;GO:0005488&quot;, &quot;GO:0005515&quot;,
   &quot;GO:0005625&quot;, &quot;GO:0005802&quot;, &quot;GO:0005905&quot;
 ) # AP4B1
-go2 = c(
+go2 &lt;- c(
   &quot;GO:0005515&quot;, &quot;GO:0005634&quot;, &quot;GO:0005681&quot;,
   &quot;GO:0008380&quot;, &quot;GO:0031202&quot;
 ) # BCAS2
-go3 = c(
+go3 &lt;- c(
   &quot;GO:0003735&quot;, &quot;GO:0005622&quot;, &quot;GO:0005840&quot;,
   &quot;GO:0006412&quot;
 ) # PDE4DIP
-golist = list(go1, go2, go3)
+golist &lt;- list(go1, go2, go3)
 parGOSim(golist, type = &quot;go&quot;, ont = &quot;CC&quot;, measure = &quot;Wang&quot;)</code></pre>
 <pre class="r"><code>##       [,1]  [,2] [,3]
 ## [1,] 1.000 0.344 0.17
 ## [2,] 0.344 1.000 0.24
 ## [3,] 0.170 0.240 1.00</code></pre>
 <pre class="r"><code># By Entrez gene id
-genelist = list(c(&quot;150&quot;, &quot;151&quot;, &quot;152&quot;, &quot;1814&quot;, &quot;1815&quot;, &quot;1816&quot;))
+genelist &lt;- list(c(&quot;150&quot;, &quot;151&quot;, &quot;152&quot;, &quot;1814&quot;, &quot;1815&quot;, &quot;1816&quot;))
 parGOSim(genelist, type = &quot;gene&quot;, ont = &quot;BP&quot;, measure = &quot;Wang&quot;)</code></pre>
 <pre class="r"><code>##        150   151   152  1814  1815  1816
 ## 150  1.000 0.702 0.725 0.496 0.570 0.455
@@ -2863,9 +2895,9 @@ parGOSim(genelist, type = &quot;gene&quot;, ont = &quot;BP&quot;, measure = &quo
 <div id="retrieve-protein-sequences-from-uniprot" class="section level2">
 <h2><span class="header-section-number">8.1</span> Retrieve Protein Sequences from UniProt</h2>
 <p>This function <code>getUniProt()</code> gets protein sequences from uniprot.org by protein ID(s). The input <code>ID</code> is a character vector specifying the protein ID(s). The returned sequences are stored in a list:</p>
-<pre class="r"><code>ids = c(&quot;P00750&quot;, &quot;P00751&quot;, &quot;P00752&quot;)
-prots = getUniProt(ids)
-print(prots)</code></pre>
+<pre class="r"><code>ids &lt;- c(&quot;P00750&quot;, &quot;P00751&quot;, &quot;P00752&quot;)
+prots &lt;- getUniProt(ids)
+prots</code></pre>
 <pre class="r"><code>## [[1]]
 ## [1] &quot;MDAMKRGLCCVLLLCGAVFVSPSQEIHARFRRGARSYQVICRDEKTQMIYQQHQSWLRPVLRSNRVEYCWCN
 ## SGRAQCHSVPVKSCSEPRCFNGGTCQQALYFSDFVCQCPEGFAGKCCEIDTRATCYEDQGISYRGTWSTAESGAECT
@@ -2875,7 +2907,7 @@ print(prots)</code></pre>
 ## GEEEQKFEVEKYIVHKEFDDDTYDNDIALLQLKSDSSRCAQESSVVRTVCLPPADLQLPDWTECELSGYGKHEALSP
 ## FYSERLKEAHVRLYPSSRCTSQHLLNRTVTDNMLCAGDTRSGGPQANLHDACQGDSGGPLVCLNDGRMTLVGIISWG
 ## LGCGQKDVPGVYTKVTNYLDWIRDNMRP&quot;
-## 
+##
 ## [[2]]
 ## [1] &quot;MGSNLSPQLCLMPFILGLLSGGVTTTPWSLARPQGSCSLEGVEIKGGSFRLLQEGQALEYVCPSGFYPYPVQ
 ## TRTCRSTGSWSTLKTQDQKTVRKAECRAIHCPRPHDFENGEYWPRSPYYNVSDEISFHCYDGYTLRGSANRTCQVNG
@@ -2887,7 +2919,7 @@ print(prots)</code></pre>
 ## HSIKVSVGGEKRDLEIEVVLFHPNYNINGKKEAGIPEFYDYDVALIKLKNKLKYGQTIRPICLPCTEGTTRALRLPP
 ## TTTCQQQKEELLPAQDIKALFVSEEEKKLTRKEVYIKNGDKKGSCERDAQYAPGYDKVKDISEVVTPRFLCTGGVSP
 ## YADPNTCRGDSGGPLIVHKRSRFIQVGVISWGVVDVCKNQKRQKQVPAHARDFHINLFQVLPWLKEKLQDEDLGFL&quot;
-## 
+##
 ## [[3]]
 ## [1] &quot;APPIQSRIIGGRECEKNSHPWQVAIYHYSSFQCGGVLVNPKWVLTAAHCKNDNYEVWLGRHNLFENENTAQF
 ## FGVTADFPHPGFNLSLLKXHTKADGKDYSHDLMLLRLQSPAKITDAVKVLELPTQEPELGSTCEASGWGSIEPGPDB
@@ -2905,7 +2937,7 @@ print(prots)</code></pre>
 <div id="sanity-check-for-amino-acid-types" class="section level2">
 <h2><span class="header-section-number">8.4</span> Sanity Check for Amino Acid Types</h2>
 <p>The <code>protcheck()</code> function checks if the protein sequence’s amino acid types are in the 20 default types, which returns a <code>TRUE</code> if all the amino acids in the sequence belongs to the 20 default types:</p>
-<pre class="r"><code>x = readFASTA(system.file(&quot;protseq/P00750.fasta&quot;, package = &quot;protr&quot;))[[1]]
+<pre class="r"><code>x &lt;- readFASTA(system.file(&quot;protseq/P00750.fasta&quot;, package = &quot;protr&quot;))[[1]]
 # a real sequence
 protcheck(x)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
@@ -2959,7 +2991,7 @@ protcheck(paste(x, &quot;Z&quot;, sep = &quot;&quot;))</code></pre>
 <p align="center">
 Figure 8: A screenshot of the web application ProtrWeb
 </p>
-<p>Source code repository for this Shiny web application: <a href="https://github.com/road2stat/protrweb" class="uri">https://github.com/road2stat/protrweb</a>.</p>
+<p>Source code repository for this Shiny web application: <a href="https://github.com/nanxstats/protrweb" class="uri">https://github.com/nanxstats/protrweb</a>.</p>
 </div>
 <div id="summary" class="section level1">
 <h1><span class="header-section-number">10</span> Summary</h1>
@@ -3316,7 +3348,7 @@ Figure 8: A screenshot of the web application ProtrWeb
 <p>Schneider,G. and Wrede,P. (1994) The rational design of amino acid sequences by artificial neural networks and simulated molecular evolution: Do novo design of an idealized leader cleavage site. <em>Biophysical Journal</em>, <strong>66</strong>, 335–344.</p>
 </div>
 <div id="ref-shenjw">
-<p>Shen,J. <em>et al.</em> (2007) Predicting protein-protein interactions based only on sequences information. <em>Proceedings of the National Academy of Sciences</em>, <strong>104</strong>, 4337–4341.</p>
+<p>Shen,J.W. <em>et al.</em> (2007) Predicting protein-protein interactions based only on sequences information. <em>Proceedings of the National Academy of Sciences</em>, <strong>104</strong>, 4337–4341.</p>
 </div>
 <div id="ref-Xiao2015">
 <p>Xiao,N. <em>et al.</em> (2015) protr/ProtrWeb: R package and web server for generating various numerical representation schemes of protein sequences. <em>Bioinformatics</em>, <strong>31</strong>, 1857–1859.</p>
