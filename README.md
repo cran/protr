@@ -1,31 +1,31 @@
-# protr  <a href="https://nanx.me/protr/"><img src="https://i.imgur.com/D0nDOWs.png" align="right" alt="logo" height="180" width="180" /></a>
+# protr  <img src="man/figures/logo.png" align="right" width="120" />
 
-[![Build Status](https://travis-ci.org/nanxstats/protr.svg?branch=master)](https://travis-ci.org/nanxstats/protr)
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/nanxstats/protr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/nanxstats/protr/actions/workflows/R-CMD-check.yaml)
 [![CRAN Version](https://www.r-pkg.org/badges/version/protr)](https://cran.r-project.org/package=protr)
 [![Downloads from the RStudio CRAN mirror](https://cranlogs.r-pkg.org/badges/protr)](https://cranlogs.r-pkg.org/badges/protr)
+<!-- badges: end -->
 
 Comprehensive toolkit for generating various numerical features of protein sequences described in Xiao et al. (2015) <[DOI:10.1093/bioinformatics/btv042](https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btv042)> ([PDF](https://nanx.me/papers/protr.pdf)).
 
-## Paper Citation
+## Paper citation
 
 Formatted citation:
 
-Nan Xiao, Dong-Sheng Cao, Min-Feng Zhu, and Qing-Song Xu. (2015). protr/ProtrWeb: R package and web server for generating various numerical representation schemes of protein sequences. _Bioinformatics_ 31 (11), 1857-1859.
+Nan Xiao, Dong-Sheng Cao, Min-Feng Zhu, Qing-Song Xu (2015). protr/ProtrWeb: R package and web server for generating various numerical representation schemes of protein sequences. _Bioinformatics_, **31**(11), 1857--1859.
 
 BibTeX entry:
 
 ```
 @article{Xiao2015,
-  author = {Xiao, Nan and Cao, Dong-Sheng and Zhu, Min-Feng and Xu, Qing-Song.},
-  title = {{protr/ProtrWeb: R package and web server for generating various numerical representation schemes of protein sequences}},
+  author  = {Xiao, Nan and Cao, Dong-Sheng and Zhu, Min-Feng and Xu, Qing-Song.},
+  title   = {protr/{ProtrWeb}: {R} package and web server for generating various numerical representation schemes of protein sequences},
   journal = {Bioinformatics},
-  year = {2015},
-  volume = {31},
-  number = {11},
-  pages = {1857--1859},
-  doi = {10.1093/bioinformatics/btv042},
-  issn = {1367-4803},
-  url = {http://bioinformatics.oxfordjournals.org/content/31/11/1857}
+  year    = {2015},
+  volume  = {31},
+  number  = {11},
+  pages   = {1857--1859},
+  doi     = {10.1093/bioinformatics/btv042}
 }
 ```
 
@@ -40,19 +40,18 @@ install.packages("protr")
 Or try the latest version on GitHub:
 
 ```r
-# install.packages("devtools")
-devtools::install_github("nanxstats/protr")
+remotes::install_github("nanxstats/protr")
 ```
 
 [Browse the package vignette](https://nanx.me/protr/articles/protr.html) for a quick-start.
 
-## Shiny App
+## Shiny app
 
 ProtrWeb, the Shiny web application built on protr, can be accessed from [http://protr.org](http://protr.org).
 
 ProtrWeb is a user-friendly web application for computing the protein sequence descriptors (features) presented in the protr package.
 
-## List of Supported Descriptors
+## List of supported descriptors
 
 ### Commonly used descriptors
 
@@ -119,4 +118,4 @@ GO semantic similarity measures:
 
 ## Contribute
 
-To contribute to this project, please take a look at the [Contributing Guidelines](CONTRIBUTING.md) first. Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+To contribute to this project, please take a look at the [Contributing Guidelines](https://nanx.me/protr/CONTRIBUTING.html) first. Please note that this project is released with a [Contributor Code of Conduct](https://nanx.me/protr/CONDUCT.html). By participating in this project you agree to abide by its terms.

@@ -4,9 +4,13 @@
 \alias{extractMoran}
 \title{Moran Autocorrelation Descriptor}
 \usage{
-extractMoran(x, props = c("CIDH920105", "BHAR880101", "CHAM820101",
-  "CHAM820102", "CHOC760101", "BIGC670101", "CHAM810101", "DAYM780201"),
-  nlag = 30L, customprops = NULL)
+extractMoran(
+  x,
+  props = c("CIDH920105", "BHAR880101", "CHAM820101", "CHAM820102", "CHOC760101",
+    "BIGC670101", "CHAM810101", "DAYM780201"),
+  nlag = 30L,
+  customprops = NULL
+)
 }
 \arguments{
 \item{x}{A character vector, as the input protein sequence.}
@@ -86,7 +90,7 @@ extractMoran(
 }
 \references{
 AAindex: Amino acid index database.
-\url{http://www.genome.ad.jp/dbget/aaindex.html}
+\url{https://www.genome.jp/dbget/aaindex.html}
 
 Feng, Z.P. and Zhang, C.T. (2000)
 Prediction of membrane protein types based on the hydrophobic

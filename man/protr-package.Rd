@@ -6,12 +6,9 @@
 \alias{protr-package}
 \title{protr: Generating Various Numerical Representation Schemes for Protein Sequences}
 \description{
-Comprehensive toolkit for generating various numerical
-    features of protein sequences described in Xiao et al. (2015)
-    <DOI:10.1093/bioinformatics/btv042>. For full functionality,
-    the software 'ncbi-blast+' is needed, see
-    <https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download>
-    for more information.
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
+Comprehensive toolkit for generating various numerical features of protein sequences described in Xiao et al. (2015) \doi{10.1093/bioinformatics/btv042}. For full functionality, the software 'ncbi-blast+' is needed, see \url{https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download} for more information.
 }
 \seealso{
 Useful links:
@@ -24,7 +21,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Nan Xiao \email{me@nanx.me} (0000-0002-0250-5673)
+\strong{Maintainer}: Nan Xiao \email{me@nanx.me} (\href{https://orcid.org/0000-0002-0250-5673}{ORCID})
 
 Authors:
 \itemize{
