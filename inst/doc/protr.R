@@ -7,17 +7,21 @@ knitr::opts_chunk$set(
 ## -----------------------------------------------------------------------------
 library("protr")
 
-# load FASTA files
-# (system.file is for accessing example file in protr package,
-# replace it with your path)
-extracell <- readFASTA(system.file(
-  "protseq/extracell.fasta",
-  package = "protr"
-))
-mitonchon <- readFASTA(system.file(
-  "protseq/mitochondrion.fasta",
-  package = "protr"
-))
+# Load FASTA files
+# Note that `system.file()` is for accessing example files
+# in the protr package. Replace it with your own file path.
+extracell <- readFASTA(
+  system.file(
+    "protseq/extracell.fasta",
+    package = "protr"
+  )
+)
+mitonchon <- readFASTA(
+  system.file(
+    "protseq/mitochondrion.fasta",
+    package = "protr"
+  )
+)
 
 ## ----eval = FALSE-------------------------------------------------------------
 #  length(extracell)
@@ -48,18 +52,18 @@ mitonchon <- readFASTA(system.file(
 #  ## [1] 304
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  # calculate APseAAC descriptors
+#  # Calculate APseAAC descriptors
 #  x1 <- t(sapply(extracell, extractAPAAC))
 #  x2 <- t(sapply(mitonchon, extractAPAAC))
 #  x <- rbind(x1, x2)
 #  
-#  # make class labels
+#  # Make class labels
 #  labels <- as.factor(c(rep(0, length(extracell)), rep(1, length(mitonchon))))
 
 ## ----eval = FALSE-------------------------------------------------------------
 #  set.seed(1001)
 #  
-#  # split training and test set
+#  # Split training and test set
 #  tr.idx <- c(
 #    sample(1:nrow(x1), round(nrow(x1) * 0.75)),
 #    sample(nrow(x1) + 1:nrow(x2), round(nrow(x2) * 0.75))
@@ -90,10 +94,10 @@ mitonchon <- readFASTA(system.file(
 #  ## 1  72 156   0.3157895
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  # predict on test set
+#  # Predict on test set
 #  rf.pred <- predict(rf.fit, newdata = x.te, type = "prob")[, 1]
 #  
-#  # plot ROC curve
+#  # Plot ROC curve
 #  library("pROC")
 #  plot.roc(y.te, rf.pred, grid = TRUE, print.auc = TRUE)
 
@@ -104,6 +108,9 @@ mitonchon <- readFASTA(system.file(
 #  ##
 #  ## Data: rf.pred in 81 controls (y.te 0) > 76 cases (y.te 1).
 #  ## Area under the curve: 0.8697
+
+## -----------------------------------------------------------------------------
+knitr::include_graphics("figures/roc.png")
 
 ## ----extractAAC---------------------------------------------------------------
 library("protr")
@@ -122,6 +129,9 @@ head(dc, n = 30L)
 ## ----extractTC----------------------------------------------------------------
 tc <- extractTC(x)
 head(tc, n = 36L)
+
+## -----------------------------------------------------------------------------
+knitr::include_graphics("figures/AAindex.png")
 
 ## ----extractMoreau1-----------------------------------------------------------
 moreau <- extractMoreauBroto(x)
@@ -143,7 +153,7 @@ myprops <- data.frame(
   Y = c(0.26, -2.3, 107), V = c(1.08, -1.5, 43)
 )
 
-# Use 4 properties in the AAindex database, and 3 cutomized properties
+# Use 4 properties in the AAindex database and 3 customized properties
 moreau2 <- extractMoreauBroto(
   x,
   customprops = myprops,
@@ -186,6 +196,9 @@ geary <- extractGeary(
 
 head(geary, n = 36L)
 
+## -----------------------------------------------------------------------------
+knitr::include_graphics("figures/CTD.png")
+
 ## ----extractCTDC--------------------------------------------------------------
 extractCTDC(x)
 
@@ -195,6 +208,9 @@ extractCTDT(x)
 ## ----extractCTDD--------------------------------------------------------------
 extractCTDD(x)
 
+## -----------------------------------------------------------------------------
+knitr::include_graphics("figures/ctriad.png")
+
 ## ----extractCTriad------------------------------------------------------------
 ctriad <- extractCTriad(x)
 head(ctriad, n = 65L)
@@ -202,11 +218,20 @@ head(ctriad, n = 65L)
 ## ----extractSOCN--------------------------------------------------------------
 extractSOCN(x)
 
+## -----------------------------------------------------------------------------
+knitr::include_graphics("figures/QSO.png")
+
 ## ----extractQSO---------------------------------------------------------------
 extractQSO(x)
 
+## -----------------------------------------------------------------------------
+knitr::include_graphics("figures/PAAC.png")
+
 ## ----extractPAAC--------------------------------------------------------------
 extractPAAC(x)
+
+## -----------------------------------------------------------------------------
+knitr::include_graphics("figures/APAAC.png")
 
 ## ----extractAPAAC-------------------------------------------------------------
 extractAPAAC(x)
@@ -335,11 +360,14 @@ head(blosum, 15)
 
 ## ----protcheck----------------------------------------------------------------
 x <- readFASTA(system.file("protseq/P00750.fasta", package = "protr"))[[1]]
-# a real sequence
+# A real sequence
 protcheck(x)
-# an artificial sequence
+# An artificial sequence
 protcheck(paste(x, "Z", sep = ""))
 
 ## ----protseg------------------------------------------------------------------
 protseg(x, aa = "M", k = 5)
+
+## -----------------------------------------------------------------------------
+knitr::include_graphics("figures/protrweb.png")
 

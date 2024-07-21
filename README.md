@@ -6,7 +6,7 @@
 [![Downloads from the RStudio CRAN mirror](https://cranlogs.r-pkg.org/badges/protr)](https://cranlogs.r-pkg.org/badges/protr)
 <!-- badges: end -->
 
-Comprehensive toolkit for generating various numerical features of protein sequences described in Xiao et al. (2015) <[DOI:10.1093/bioinformatics/btv042](https://academic.oup.com/bioinformatics/article-lookup/doi/10.1093/bioinformatics/btv042)> ([PDF](https://nanx.me/papers/protr.pdf)).
+Comprehensive toolkit for generating various numerical features of protein sequences described in Xiao et al. (2015) <[DOI:10.1093/bioinformatics/btv042](https://doi.org/10.1093/bioinformatics/btv042)> ([PDF](https://nanx.me/papers/protr.pdf)).
 
 ## Paper citation
 
@@ -119,4 +119,8 @@ GO semantic similarity measures:
 
 ## Contribute
 
-To contribute to this project, please take a look at the [Contributing Guidelines](https://nanx.me/protr/CONTRIBUTING.html) first. Please note that this project is released with a [Contributor Code of Conduct](https://nanx.me/protr/CONDUCT.html). By participating in this project you agree to abide by its terms.
+To contribute to this project, please take a look at the
+[Contributing Guidelines](https://nanx.me/protr/CONTRIBUTING.html) first.
+Please note that the protr project is released with a
+[Contributor Code of Conduct](https://nanx.me/protr/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
