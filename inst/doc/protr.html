@@ -1929,9 +1929,9 @@ descriptors</li>
 </ul>
 <p>The protr package integrates the function of parallelized similarity
 score computation derived by local or global protein sequence alignment
-between a list of protein sequences; Biostrings provides the sequence
-alignment computation, and the corresponding functions listed in the
-protr package include:</p>
+between a list of protein sequences; Biostrings and pwalign provide the
+sequence alignment computation, and the corresponding functions listed
+in the protr package include:</p>
 <ul>
 <li><code>twoSeqSim()</code> - Similarity calculation derived by
 sequence alignment between two protein sequences</li>
@@ -2329,7 +2329,7 @@ listed in Table 1.</p>
 <caption>Table 1: Amino acid attributes and the three-group
 classification of the 20 amino acids by each attribute</caption>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th align="left"><strong>Group 1</strong></th>
 <th align="left"><strong>Group 2</strong></th>
@@ -2337,85 +2337,85 @@ classification of the 20 amino acids by each attribute</caption>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Hydrophobicity</td>
 <td align="left">Polar</td>
 <td align="left">Neutral</td>
 <td align="left">Hydrophobicity</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td align="left">R, K, E, D, Q, N</td>
 <td align="left">G, A, S, T, P, H, Y</td>
 <td align="left">C, L, V, I, M, F, W</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Normalized van der Waals Volume</td>
 <td align="left">0-2.78</td>
 <td align="left">2.95-4.0</td>
 <td align="left">4.03-8.08</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td align="left">G, A, S, T, P, D, C</td>
 <td align="left">N, V, E, Q, I, L</td>
 <td align="left">M, H, K, F, R, Y, W</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Polarity</td>
 <td align="left">4.9-6.2</td>
 <td align="left">8.0-9.2</td>
 <td align="left">10.4-13.0</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td align="left">L, I, F, W, C, M, V, Y</td>
 <td align="left">P, A, T, G, S</td>
 <td align="left">H, Q, R, K, N, E, D</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Polarizability</td>
 <td align="left">0-1.08</td>
 <td align="left">0.128-0.186</td>
 <td align="left">0.219-0.409</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td align="left">G, A, S, D, T</td>
 <td align="left">C, P, N, V, E, Q, I, L</td>
 <td align="left">K, M, H, F, R, Y, W</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Charge</td>
 <td align="left">Positive</td>
 <td align="left">Neutral</td>
 <td align="left">Negative</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td align="left">K, R</td>
 <td align="left">A, N, C, Q, G, H, I, L, M, F, P, S, T, W, Y, V</td>
 <td align="left">D, E</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Secondary Structure</td>
 <td align="left">Helix</td>
 <td align="left">Strand</td>
 <td align="left">Coil</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td align="left">E, A, L, M, Q, K, R, H</td>
 <td align="left">V, I, Y, C, W, F, T</td>
 <td align="left">G, N, P, S, D</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Solvent Accessibility</td>
 <td align="left">Buried</td>
 <td align="left">Exposed</td>
 <td align="left">Intermediate</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td align="left">A, L, F, C, G, I, V, W</td>
 <td align="left">R, K, Q, E, N, D</td>
@@ -2584,7 +2584,7 @@ of their similar characteristics.</p>
 <caption>Table 2: Classification of amino acids based on dipoles and
 volumes of the side chains</caption>
 <thead>
-<tr>
+<tr class="header">
 <th align="center">No.</th>
 <th align="center">Dipole Scale<span class="math inline">\(^1\)</span></th>
 <th align="center">Volume Scale<span class="math inline">\(^2\)</span></th>
@@ -2592,43 +2592,43 @@ volumes of the side chains</caption>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td align="center">1</td>
 <td align="center"><span class="math inline">\(-\)</span></td>
 <td align="center"><span class="math inline">\(-\)</span></td>
 <td align="center">Ala, Gly, Val</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="center">2</td>
 <td align="center"><span class="math inline">\(-\)</span></td>
 <td align="center"><span class="math inline">\(+\)</span></td>
 <td align="center">Ile, Leu, Phe, Pro</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="center">3</td>
 <td align="center"><span class="math inline">\(+\)</span></td>
 <td align="center"><span class="math inline">\(+\)</span></td>
 <td align="center">Tyr, Met, Thr, Ser</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="center">4</td>
 <td align="center"><span class="math inline">\(++\)</span></td>
 <td align="center"><span class="math inline">\(+\)</span></td>
 <td align="center">His, Asn, Gln, Tpr</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="center">5</td>
 <td align="center"><span class="math inline">\(+++\)</span></td>
 <td align="center"><span class="math inline">\(+\)</span></td>
 <td align="center">Arg, Lys</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="center">6</td>
 <td align="center"><span class="math inline">\(+&#39;+&#39;+&#39;\)</span></td>
 <td align="center"><span class="math inline">\(+\)</span></td>
 <td align="center">Asp, Glu</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="center">7</td>
 <td align="center"><span class="math inline">\(+^3\)</span></td>
 <td align="center"><span class="math inline">\(+\)</span></td>
@@ -3435,7 +3435,7 @@ Table 3.</p>
 <table>
 <caption>Table 3: List of commonly used descriptors in protr</caption>
 <thead>
-<tr>
+<tr class="header">
 <th align="left">Descriptor Group</th>
 <th align="left">Descriptor Name</th>
 <th align="left">Descriptor Dimension</th>
@@ -3443,85 +3443,85 @@ Table 3.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td align="left">Amino Acid Composition</td>
 <td align="left">Amino Acid Composition</td>
 <td align="left">20</td>
 <td align="left">extractAAC()</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left"></td>
 <td align="left">Dipeptide Composition</td>
 <td align="left">400</td>
 <td align="left">extractDC()</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left"></td>
 <td align="left">Tripeptide Composition</td>
 <td align="left">8000</td>
 <td align="left">extractTC()</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left">Autocorrelation</td>
 <td align="left">Normalized Moreau-Broto Autocorrelation</td>
 <td align="left">240<span class="math inline">\(^1\)</span></td>
 <td align="left">extractMoreauBroto()</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left"></td>
 <td align="left">Moran Autocorrelation</td>
 <td align="left">240<span class="math inline">\(^1\)</span></td>
 <td align="left">extractMoran()</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left"></td>
 <td align="left">Geary Autocorrelation</td>
 <td align="left">240<span class="math inline">\(^1\)</span></td>
 <td align="left">extractGeary()</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left">CTD</td>
 <td align="left">Composition</td>
 <td align="left">21</td>
 <td align="left">extractCTDC(), extractCTDCClass()</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left"></td>
 <td align="left">Transition</td>
 <td align="left">21</td>
 <td align="left">extractCTDT(), extractCTDTClass()</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left"></td>
 <td align="left">Distribution</td>
 <td align="left">105</td>
 <td align="left">extractCTDD(), extractCTDDClass()</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left">Conjoint Triad</td>
 <td align="left">Conjoint Triad</td>
 <td align="left">343</td>
 <td align="left">extractCTriad(), extractCTriadClass()</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left">Quasi-Sequence-Order</td>
 <td align="left">Sequence-Order-Coupling Number</td>
 <td align="left">60<span class="math inline">\(^2\)</span></td>
 <td align="left">extractSOCN()</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left"></td>
 <td align="left">Quasi-Sequence-Order Descriptors</td>
 <td align="left">100<span class="math inline">\(^2\)</span></td>
 <td align="left">extractQSO()</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left">Pseudo-Amino Acid Composition</td>
 <td align="left">Pseudo-Amino Acid Composition</td>
 <td align="left">50<span class="math inline">\(^3\)</span></td>
 <td align="left">extractPAAC()</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left"></td>
 <td align="left">Amphiphilic Pseudo-Amino Acid Composition</td>
 <td align="left">80<span class="math inline">\(^4\)</span></td>
@@ -3553,7 +3553,7 @@ Table 4.</p>
 <table>
 <caption>Table 4: List of PCM descriptors in protr</caption>
 <thead>
-<tr>
+<tr class="header">
 <th align="left">Derived by</th>
 <th align="left">Descriptor Class</th>
 <th align="left">Function Name</th>
@@ -3561,42 +3561,42 @@ Table 4.</p>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td align="left">Principal Components Analysis</td>
 <td align="left">Scales-based descriptors derived by Principal
 Components Analysis</td>
 <td align="left">extractScales(), extractScalesGap()</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left"></td>
 <td align="left">Scales-based descriptors derived by amino acid
 properties from AAindex (a.k.a. Protein Fingerprint)</td>
 <td align="left">extractProtFP(), extractProtFPGap()</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left"></td>
 <td align="left">Scales-based descriptors derived by 2D and 3D molecular
 descriptors (Topological, WHIM, VHSE, etc.)</td>
 <td align="left">extractDescScales()</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left">Factor Analysis</td>
 <td align="left">Scales-based descriptors derived by Factor
 Analysis</td>
 <td align="left">extractFAScales()</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left">Multidimensional Scaling</td>
 <td align="left">Scales-based descriptors derived by Multidimensional
 Scaling</td>
 <td align="left">extractMDSScales()</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left">Substitution Matrix</td>
 <td align="left">BLOSUM and PAM matrix-derived descriptors</td>
 <td align="left">extractBLOSUM()</td>
@@ -3613,7 +3613,7 @@ filtered out.</p>
 <caption>Table 5: List of the pre-calculated descriptor sets of the 20
 amino acids in protr</caption>
 <thead>
-<tr>
+<tr class="header">
 <th align="left">Dataset Name</th>
 <th align="left">Descriptor Set Name</th>
 <th align="left">Dimensionality</th>
@@ -3621,139 +3621,139 @@ amino acids in protr</caption>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td align="left">AA2DACOR</td>
 <td align="left">2D Autocorrelations Descriptors</td>
 <td align="left">92</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left">AA3DMoRSE</td>
 <td align="left">3D-MoRSE Descriptors</td>
 <td align="left">160</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left">AAACF</td>
 <td align="left">Atom-Centred Fragments Descriptors</td>
 <td align="left">6</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left">AABurden</td>
 <td align="left">Burden Eigenvalues Descriptors</td>
 <td align="left">62</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left">AAConn</td>
 <td align="left">Connectivity Indices Descriptors</td>
 <td align="left">33</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left">AAConst</td>
 <td align="left">Constitutional Descriptors</td>
 <td align="left">23</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left">AAEdgeAdj</td>
 <td align="left">Edge Adjacency Indices Descriptors</td>
 <td align="left">97</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left">AAEigIdx</td>
 <td align="left">Eigenvalue-Based Indices Descriptors</td>
 <td align="left">44</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left">AAFGC</td>
 <td align="left">Functional Group Counts Descriptors</td>
 <td align="left">5</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left">AAGeom</td>
 <td align="left">Geometrical Descriptors</td>
 <td align="left">41</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left">AAGETAWAY</td>
 <td align="left">GETAWAY Descriptors</td>
 <td align="left">194</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left">AAInfo</td>
 <td align="left">Information Indices Descriptors</td>
 <td align="left">47</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left">AAMolProp</td>
 <td align="left">Molecular Properties Descriptors</td>
 <td align="left">12</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left">AARandic</td>
 <td align="left">Randic Molecular Profiles Descriptors</td>
 <td align="left">41</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left">AARDF</td>
 <td align="left">RDF Descriptors</td>
 <td align="left">82</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left">AATopo</td>
 <td align="left">Topological Descriptors</td>
 <td align="left">78</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left">AATopoChg</td>
 <td align="left">Topological Charge Indices Descriptors</td>
 <td align="left">15</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left">AAWalk</td>
 <td align="left">Walk and Path Counts Descriptors</td>
 <td align="left">40</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left">AAWHIM</td>
 <td align="left">WHIM Descriptors</td>
 <td align="left">99</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left">AACPSA</td>
 <td align="left">CPSA Descriptors</td>
 <td align="left">41</td>
 <td align="left">Accelrys Discovery Studio</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left">AADescAll</td>
 <td align="left">All the 2D Descriptors Calculated by Dragon</td>
 <td align="left">1171</td>
 <td align="left">Dragon</td>
 </tr>
-<tr>
+<tr class="even">
 <td align="left">AAMOE2D</td>
 <td align="left">All the 2D Descriptors Calculated by MOE</td>
 <td align="left">148</td>
 <td align="left">MOE</td>
 </tr>
-<tr>
+<tr class="odd">
 <td align="left">AAMOE3D</td>
 <td align="left">All the 3D Descriptors Calculated by MOE</td>
 <td align="left">143</td>
