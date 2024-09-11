@@ -1,7 +1,7 @@
-cb4008d77780fa708f2a448e5689332c *DESCRIPTION
+9f3f3892e87f9a4ced04dc7410ff82cf *DESCRIPTION
 85dbcfe148041cceac9fabb90295ebde *LICENSE
 65d6a445300d33dfc98064ef3b62112b *NAMESPACE
-33415b81558defa397e8e37e5840dedc *NEWS.md
+aeef1c6917e87083085721f393fa3296 *NEWS.md
 ab200d3c6df838b1a2840dfaf8d90459 *R/desc-01-AAC.R
 d892602f62fb4f5a3d994cc95781ad47 *R/desc-02-DC.R
 5245c11b782a60440a462dcd1a58f50e *R/desc-03-TC.R
@@ -30,7 +30,7 @@ e9742af3af3a45064610318fea7605ed *R/misc-04-protseg.R
 843e2411ae07feb0e4f238f6f67142b4 *R/misc-05-getUniProt.R
 f72cef8f56d20bf4cfae9cc9c98dcbdd *R/misc-06-acc.R
 05d7efcd629e131e946db7d8372b13e8 *R/misc-07-removeGaps.R
-a005e3e9c1a20424e18a641739a12f36 *R/par-01-parSeqSim.R
+9ba9cfe5e4fa5d7ce1f8804d17124bde *R/par-01-parSeqSim.R
 530be419390412ecb76f69830114d4c7 *R/par-02-parGOSim.R
 7e866a89bfd4a634ec10ce441398b1df *R/pcm-01-extractScales.R
 5ab13d4461d25cc402eaa9bc5d88bd4a *R/pcm-01-extractScalesGap.R
