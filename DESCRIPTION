@@ -1,5 +1,5 @@
 Package: protr
-Version: 1.7-4
+Version: 1.7-5
 Title: Generating Various Numerical Representation Schemes for Protein
         Sequences
 Description: Comprehensive toolkit for generating various numerical
@@ -13,8 +13,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0002-0250-5673")),
     person("Qing-Song", "Xu", email = "qsxu@csu.edu.cn", role = c("aut")),
     person("Dong-Sheng", "Cao", role = "aut"),
-    person("Sebastian", "Mueller", role = "ctb",
-           comment = c(company = "Alva Genomics"))
+    person("Sebastian", "Mueller", role = "ctb", comment = "Alva Genomics")
     )
 License: BSD_3_clause + file LICENSE
 URL: https://nanx.me/protr/, https://github.com/nanxstats/protr,
@@ -30,11 +29,11 @@ Suggests: knitr, rmarkdown, Biostrings, GOSemSim, foreach, doParallel,
         org.Hs.eg.db
 RoxygenNote: 7.3.2
 NeedsCompilation: no
-Packaged: 2024-09-10 23:07:28 UTC; nanx
-Author: Nan Xiao [aut, cre] (<https://orcid.org/0000-0002-0250-5673>),
+Packaged: 2025-08-21 01:36:49 UTC; nanx
+Author: Nan Xiao [aut, cre] (ORCID: <https://orcid.org/0000-0002-0250-5673>),
   Qing-Song Xu [aut],
   Dong-Sheng Cao [aut],
   Sebastian Mueller [ctb] (Alva Genomics)
 Maintainer: Nan Xiao <me@nanx.me>
 Repository: CRAN
-Date/Publication: 2024-09-11 23:00:05 UTC
+Date/Publication: 2025-08-21 05:10:02 UTC

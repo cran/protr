@@ -1,7 +1,7 @@
-9f3f3892e87f9a4ced04dc7410ff82cf *DESCRIPTION
+6cd3811467f3c66b298b39e06ff04e46 *DESCRIPTION
 85dbcfe148041cceac9fabb90295ebde *LICENSE
 65d6a445300d33dfc98064ef3b62112b *NAMESPACE
-aeef1c6917e87083085721f393fa3296 *NEWS.md
+370157e1b2c6e7bdab77c5ef86aab56b *NEWS.md
 ab200d3c6df838b1a2840dfaf8d90459 *R/desc-01-AAC.R
 d892602f62fb4f5a3d994cc95781ad47 *R/desc-02-DC.R
 5245c11b782a60440a462dcd1a58f50e *R/desc-03-TC.R
@@ -43,9 +43,9 @@ f9cd896ade003b5535151557b8349bde *R/pcm-06-extractBLOSUM.R
 24827ffaf2bce715115c4363005a6b2e *R/protr-datalist.R
 b4fe12876c37f8a22cde06e9701eecf0 *R/protr-package.R
 52fceb60fbfe5f7a553fb91f32771a1a *R/utils.R
-d80b2c6710a38c423714f722b37a8e8c *README.md
-aa5e5a2cbfaea3d9b6cdbe378ac48cee *build/partial.rdb
-b85e199c49b5d1a6825df59afe01b673 *build/vignette.rds
+cc1f2d76c5bfd4566adacd9ad5d29952 *README.md
+1bf18d9c216b8d95033f0bd2fe2906b2 *build/partial.rdb
+f3ebd934a50aa7ef33fa375e9b98e7a8 *build/vignette.rds
 74fd2419e84eb552d3d7bf73b5f12180 *data/AA2DACOR.rda
 5b7c6f94b51a6cc85f679be46f8ca65a *data/AA3DMoRSE.rda
 950a7207428adbf07025b3ea572ca17e *data/AAACF.rda
@@ -82,9 +82,9 @@ cd06e7f0cd64b800197fb41332eddc95 *data/AAWHIM.rda
 e4dc18863083c330da419217c919c2e7 *data/AAWalk.rda
 fe761e0c115a58ab00a61ad6c4f8801e *data/AAindex.rda
 a13c5934f376e0f8a810c97f0516921f *inst/CITATION
-e078bc0c71bd22d5653f90dde0aeae8f *inst/doc/protr.R
+dd8e0070453eba87d9ab6ea3f54f3aaa *inst/doc/protr.R
 e548683a2bd977691a4245fb4b07433d *inst/doc/protr.Rmd
-a07c3fbf790db2577f606e1f89cfaa48 *inst/doc/protr.html
+38af6dbdc8824a9e5f3c9f45eaa38272 *inst/doc/protr.html
 12302e707d4ba205b42ac4018698184a *inst/logo/logo.R
 e9a8c531da4011cd6c79e837c7ca9775 *inst/protseq/4HHB.pdb
 4a16b7ca86e201cec2c42382c4445180 *inst/protseq/P00750.fasta
